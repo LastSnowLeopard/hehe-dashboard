@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Baloo';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baloo'), url('/fonts/Baloo.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BalooRegular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('BalooRegular'), url('/fonts/BalooRegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BalooSemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('BalooSemiBold'), url('/fonts/BalooSemiBold.woff') format('woff');
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

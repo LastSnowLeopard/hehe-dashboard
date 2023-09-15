@@ -35,7 +35,7 @@ const Header: React.FC = () => {
           aria-label="open drawer"
           onClick={toggleSideOpenM}
           sx={{
-            display: { xs: "inline-flex", sm: "none" },
+            display: { xs: "inline-flex", md: "none" },
           }}
         >
           <ChevronRightIcon />

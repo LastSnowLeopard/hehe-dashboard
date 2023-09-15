@@ -21,6 +21,7 @@ const Main = styled("main", {
   height: '100vh',
   padding: theme.spacing(3),
   paddingTop: "64px",
+  overflowY: 'scroll',
   backgroundColor: theme.palette.mode === "dark" ? "#272B30" : "#fff",
   color: theme.palette.mode === "dark" ? "#fff" : "#272B30",
   transition: theme.transitions.create("margin", {

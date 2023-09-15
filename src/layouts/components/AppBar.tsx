@@ -19,7 +19,7 @@ const AppBar = styled(MuiAppBar, {
   ...(open && {
     marginLeft: drawer_width,
     width: `calc(100% - ${drawer_width}px)`,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginLeft: 0,
       width: "100%",
     },

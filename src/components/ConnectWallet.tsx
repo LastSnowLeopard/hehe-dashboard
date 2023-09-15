@@ -6,6 +6,7 @@ import Popover from "@mui/material/Popover";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
+import SVG from "./SVG";
 
 const DisconnectButton = styled(Button)(() => ({
   padding: "8px 16px",
@@ -42,7 +43,7 @@ const BlackButton = styled(Button)(() => ({
 }));
 
 const PopUpBox = styled(Box)(() => ({
-  borderRadius: "8px",
+  // borderRadius: "8px",
   display: "flex",
   flexDirection: "column",
   gap: "16px",
@@ -137,46 +138,7 @@ const ConnectWallet: React.FC = () => {
               <Box>
                 <WalletAddress>0xaDJd...asdef48</WalletAddress>
                 <CoinBox>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"
-                      fill="#627EEA"
-                    />
-                    <path
-                      d="M12.3735 3V9.6525L17.9963 12.165L12.3735 3Z"
-                      fill="white"
-                      fillOpacity="0.602"
-                    />
-                    <path
-                      d="M12.3735 3L6.75 12.165L12.3735 9.6525V3Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M12.3735 16.4759V20.9962L18 13.2119L12.3735 16.4759Z"
-                      fill="white"
-                      fillOpacity="0.602"
-                    />
-                    <path
-                      d="M12.3735 20.9962V16.4752L6.75 13.2119L12.3735 20.9962Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M12.3735 15.4296L17.9963 12.1648L12.3735 9.65381V15.4296Z"
-                      fill="white"
-                      fillOpacity="0.2"
-                    />
-                    <path
-                      d="M6.75 12.1648L12.3735 15.4296V9.65381L6.75 12.1648Z"
-                      fill="white"
-                      fillOpacity="0.602"
-                    />
-                  </svg>
+                  <SVG id="coin" width={24} height={24} />
                   <WalletAddress>0.24</WalletAddress>
                 </CoinBox>
               </Box>

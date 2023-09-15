@@ -1,11 +1,11 @@
 import { Box, Grid } from "@mui/material";
-import Profile from "./Profile";
+import Profile from "./components/Profile";
 import StatisticCard from "@/components/StatisticCard";
-import PersonalLink from "./PersonalLink";
-import Profits from "./Profits";
-import Boost from "./Boost";
-import Award from "./Award";
-import RecentActivity from "./RecentActivity";
+import PersonalLink from "./components/PersonalLink";
+import Profits from "./components/Profits";
+import Boost from "./components/Boost";
+import Award from "./components/Award";
+import RecentActivity from "./components/RecentActivity";
 
 const statistics = [
   {
@@ -67,7 +67,6 @@ const members = [
         rate: 37.8,
       },
       {
-        // title: "Members received",
         value: "1537240 BNB",
         increase: true,
         rate: 37.8,

@@ -41,45 +41,47 @@ const Header: React.FC = () => {
           <ChevronRightIcon />
         </IconButton>
         <Box component="div" sx={{ flexGrow: 1 }}></Box>
-        <Button
-          color="primary"
-          variant="contained"
-          size="small"
-          sx={{
-            padding: "8px 20px 3px",
-            borderRadius: "20px",
-            fontFamily: "Baloo",
-          }}
-          onClick={handleSelectNetworkAnchor}
-        >
-          Select Network
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          size="small"
-          sx={{
-            padding: "8px 20px 3px",
-            borderRadius: "20px",
-            fontFamily: "Baloo",
-          }}
-          onClick={handleConnectWalletAnchor}
-        >
-          Change Wallet
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          size="small"
-          sx={{
-            padding: "8px 20px 3px",
-            borderRadius: "20px",
-            fontFamily: "Baloo",
-          }}
-          onClick={toggleWalletDialog}
-        >
-          Wallet Connect
-        </Button>
+        <Box display={"flex"} gap={1}>
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            sx={{
+              padding: "8px 20px 3px",
+              borderRadius: "20px",
+              fontFamily: "Baloo",
+            }}
+            onClick={handleSelectNetworkAnchor}
+          >
+            Select Network
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            sx={{
+              padding: "8px 20px 3px",
+              borderRadius: "20px",
+              fontFamily: "Baloo",
+            }}
+            onClick={handleConnectWalletAnchor}
+          >
+            Change Wallet
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            sx={{
+              padding: "8px 20px 3px",
+              borderRadius: "20px",
+              fontFamily: "Baloo",
+            }}
+            onClick={toggleWalletDialog}
+          >
+            Wallet Connect
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );

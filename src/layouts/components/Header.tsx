@@ -4,13 +4,15 @@ import AppBar from "./AppBar";
 import { useRoot } from "@/hooks/RootContext";
 
 const Header: React.FC = () => {
-
   const {
     drawerWidth,
     sideOpenD,
     toggleSideOpenD,
-    toggleSideOpenM
-    } = useRoot();
+    toggleSideOpenM,
+    toggleWalletDialog,
+    _setConnectWalletAnchor,
+    _setSelectNetworkAnchor
+  } = useRoot();
 
   return (
     <AppBar open={sideOpenD} drawer_width={drawerWidth}>
@@ -38,8 +40,46 @@ const Header: React.FC = () => {
         >
           <ChevronRightIcon />
         </IconButton>
-        <Box component="div" sx={{flexGrow: 1}}></Box>
-        <Button color="primary" variant="contained" size="small" sx={{padding: '8px 20px 3px', borderRadius: '20px', fontFamily: 'Baloo'}}>Wallet Connect</Button>
+        <Box component="div" sx={{ flexGrow: 1 }}></Box>
+        <Button
+          color="primary"
+          variant="contained"
+          size="small"
+          sx={{
+            padding: "8px 20px 3px",
+            borderRadius: "20px",
+            fontFamily: "Baloo",
+          }}
+          onClick={_setSelectNetworkAnchor}
+        >
+          Select Network
+        </Button>
+        <Button
+          color="primary"
+          variant="contained"
+          size="small"
+          sx={{
+            padding: "8px 20px 3px",
+            borderRadius: "20px",
+            fontFamily: "Baloo",
+          }}
+          onClick={_setConnectWalletAnchor}
+        >
+          Change Wallet
+        </Button>
+        <Button
+          color="primary"
+          variant="contained"
+          size="small"
+          sx={{
+            padding: "8px 20px 3px",
+            borderRadius: "20px",
+            fontFamily: "Baloo",
+          }}
+          onClick={toggleWalletDialog}
+        >
+          Wallet Connect
+        </Button>
       </Toolbar>
     </AppBar>
   );

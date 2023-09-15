@@ -72,6 +72,12 @@ const RootDivider = styled(Divider)(() => ({
   backgroundColor: "#272B30"
 }))
 
+const RootList = styled(List)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px"
+}))
+
 const PaginationArrow = styled("div")(() => ({
   width: "40px",
   height: "40px",
@@ -102,7 +108,7 @@ const RecentActivity: React.FC = () => {
           </IconButton>
         </Tooltip>
       </Box>
-      <List>
+      <RootList>
         {lists.map((list, index) => (
           <>
             <ListItem
@@ -129,7 +135,7 @@ const RecentActivity: React.FC = () => {
           </>
         ))}
       <RootDivider />
-      </List>
+      </RootList>
       <Box display={'flex'} justifyContent={'center'} gap={2}>
         <PaginationArrow>
           <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">

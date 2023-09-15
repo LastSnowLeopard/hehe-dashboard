@@ -10,8 +10,8 @@ interface RootContextType {
   toggleSideOpenD: () => void;
   toggleSideOpenM: () => void;
   toggleWalletDialog: () => void;
-  _setConnectWalletAnchor: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  _setSelectNetworkAnchor: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleConnectWalletAnchor: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleSelectNetworkAnchor: (event: React.MouseEvent<HTMLButtonElement>) => void;
   closeConnectWallet: () => void;
   closeSelectNetwork: () => void;
 }
@@ -44,7 +44,7 @@ export const RootProvider: React.FC<RootProviderProps> = ({
     setWalletDialogOpen((prev) => !prev)
   };
 
-  const _setConnectWalletAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleConnectWalletAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
     setConnectWalletAnchor(event.currentTarget)
   };
 
@@ -52,7 +52,7 @@ export const RootProvider: React.FC<RootProviderProps> = ({
     setConnectWalletAnchor(null)
   }
 
-  const _setSelectNetworkAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSelectNetworkAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
     setSelectNetworkAnchor(event.currentTarget)
   };
 
@@ -72,8 +72,8 @@ export const RootProvider: React.FC<RootProviderProps> = ({
         toggleSideOpenD,
         toggleSideOpenM,
         toggleWalletDialog,
-        _setConnectWalletAnchor,
-        _setSelectNetworkAnchor,
+        handleConnectWalletAnchor,
+        handleSelectNetworkAnchor,
         closeConnectWallet,
         closeSelectNetwork
       }}>

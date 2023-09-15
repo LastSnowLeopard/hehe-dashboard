@@ -18,7 +18,7 @@ interface ProfitsProps {
 const CardCustom = styled(Card)(() => ({
   borderRadius: 12,
   backgroundColor: "#1A1D1F",
-  padding: "12px 15px",
+  padding: "12px 24px",
   backgroundImage: "none",
   position: "relative",
   display: "flex",
@@ -50,10 +50,11 @@ const ShowMoreButton = styled(Button)(() => ({
   borderWidth: "2px",
   borderColor: "#272B30",
   borderStyle: "solid",
-  padding: "8px 16px",
+  padding: "3px 20px",
   fontFamily: "Baloo",
   fontSize: 13,
   color: "white",
+  textTransform: "none",
   backgroundColor: "transparent",
   "&:hover": {
     backgroundColor: "#1A1D1F",
@@ -73,8 +74,9 @@ const Profits: React.FC<ProfitsProps> = ({ profit }) => {
           variant="contained"
           sx={{
             borderRadius: "8px",
-            padding: "8px 16px",
+            padding: "8px 16px 5px",
             fontFamily: "Baloo",
+            textTransform: "none"
           }}
         >
           Claim

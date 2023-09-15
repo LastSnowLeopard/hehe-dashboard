@@ -31,10 +31,11 @@ const ShowButton = styled(Button)(() => ({
   borderWidth: "2px",
   borderColor: "#272B30",
   borderStyle: "solid",
-  padding: "8px 16px",
+  padding: "8px 16px 5px",
   fontFamily: "Baloo",
   fontSize: 13,
   color: "white",
+  textTransform: "none",
   backgroundColor: "transparent",
   "&:hover": {
     backgroundColor: "#1A1D1F",

@@ -9,73 +9,72 @@ import Avatar from "@mui/material/Avatar";
 import SVG from "./SVG";
 
 const DisconnectButton = styled(Button)(() => ({
-  padding: "8px 16px",
   height: "50px",
+  padding: "8px 16px",
 }));
 
 const ChangeButton = styled(Button)(() => ({
-  borderRadius: "8px",
-  borderWidth: "2px",
-  borderColor: "#272B30",
-  padding: "8px 16px",
-  fontFamily: "Baloo",
-  color: "white",
-  backgroundColor: "transparent",
   height: "50px",
+  color: "white",
+  borderWidth: "2px",
+  borderRadius: "8px",
+  padding: "8px 16px 3px",
+  fontFamily: "Baloo",
+  borderColor: "#272B30",
+  backgroundColor: "transparent",
   "&:hover": {
-    backgroundColor: "#1A1D1F",
-    borderColor: "#272B30",
     borderWidth: "2px",
+    borderColor: "#272B30",
+    backgroundColor: "#1A1D1F",
   },
 }));
 
 const BlackButton = styled(Button)(() => ({
+  height: "50px",
+  color: "white",
   borderRadius: "8px",
   padding: "8px 16px",
   fontFamily: "Baloo",
-  color: "white",
-  backgroundColor: "#1A1D1F",
-  height: "50px",
   alignSelf: "center",
+  backgroundColor: "#1A1D1F",
   "&:hover": {
     backgroundColor: "#1A1D1F",
   },
 }));
 
 const PopUpBox = styled(Box)(() => ({
-  // borderRadius: "8px",
-  display: "flex",
-  flexDirection: "column",
   gap: "16px",
-  backgroundColor: "#1A1D1F",
-  padding: "12px 15px",
   width: "450px",
+  display: "flex",
+  padding: "12px 15px",
+  flexDirection: "column",
+  backgroundColor: "#1A1D1F",
 }));
 
 const ButtonWrapper = styled(Box)(() => ({
-  display: "flex",
   gap: "8px",
+  display: "flex",
 }));
 
 const BoxCustom = styled(Box)(() => ({
-  display: "flex",
-  justifyContent: "space-between",
-  borderRadius: "8px",
   gap: "8px",
+  display: "flex",
+  borderRadius: "8px",
+  justifyContent: "space-between",
 }));
 
 const CoinBox = styled(Box)(() => ({
+  gap: "8px",
   display: "flex",
   borderRadius: "8px",
-  gap: "8px",
   alignItems: 'center'
 }));
 
 const WalletAddress = styled(Typography)(() => ({
-  fontWeight: 600,
   fontSize: 20,
-  fontFamily: "BalooSemiBold",
+  fontWeight: 600,
   alignSelf: "center",
+  fontFamily: "BalooSemiBold",
 }));
 
 const ConnectWallet: React.FC = () => {

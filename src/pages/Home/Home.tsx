@@ -98,7 +98,7 @@ const Home: React.FC = () => {
         <Grid item lg={6} md={12} sm={12} xs={12}>
           <Profile />
         </Grid>
-        <Grid container item lg={6} md={12} sm={12} xs={12} spacing={4}>
+        <Grid container item lg={6} md={12} sm={12} xs={12} spacing={3}>
           {statistics.map((item, index) => (
             <Grid item lg={4} md={4} sm={4} xs={12} key={index}>
               <StatisticCard items={item.items} />
@@ -120,9 +120,9 @@ const Home: React.FC = () => {
         <Grid item lg={8} md={12} sm={12} xs={12}>
             <RecentActivity />
         </Grid>
-        <Grid container item lg={4} md={12} sm={12} xs={12} spacing={1}>
-          {members.map((item) => (
-            <Grid item xs={12}>
+        <Grid container item lg={4} md={12} sm={12} xs={12} spacing={3} sx={{height: "100%"}}>
+          {members.map((item, index) => (
+            <Grid item lg={12} md={4} sm={12} xs={12} key={index}>
               <StatisticCard items={item.items} />
             </Grid>
           ))}

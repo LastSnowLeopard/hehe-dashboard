@@ -25,12 +25,6 @@ const RootTypography = styled(Typography)(() => ({
   fontWeight: 600
 }))
 
-const GridItem = styled(Grid)(() => ({
-  width: 32,
-  height: 32,
-  backgroundColor: "#FDE048"
-}))
-
 const Boost: React.FC = () => {
   return(
     <RootBox>
@@ -41,15 +35,17 @@ const Boost: React.FC = () => {
       <Typography>2 lines, 12 traders, 500% per trade</Typography>
       <FlexBox>
         <Box></Box>
-        <Box display={"flex"} flexDirection={"column"} gap={1}>
+        <Box display={"flex"} flexDirection={"column"}>
           <RootTypography color="primary" textAlign={'right'}>Missed profits</RootTypography>
           <RootTypography color="primary" textAlign={'right'}>330 BUSD</RootTypography>
           <Button 
             variant="contained"
             sx={{
               borderRadius: "8px",
-              padding: "8px 16px",
+              marginTop: "8px",
+              padding: "8px 16px 5px",
               fontFamily: "Baloo",
+              textTransform: "none"
             }}
             endIcon={<OpenInNewIcon />}
           >

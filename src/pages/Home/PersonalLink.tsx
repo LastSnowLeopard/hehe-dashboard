@@ -12,7 +12,7 @@ interface PersonalLinkProps {
 const CardCustom = styled(Card)(() => ({
   borderRadius: 12,
   backgroundColor: "#1A1D1F",
-  padding: "12px 15px",
+  padding: "12px 24px",
   backgroundImage: "none",
   height: "100%",
   display: "flex",
@@ -33,6 +33,7 @@ const InviteLink = styled(Link)(() => ({
   textDecoration: "none",
   color: "#FDE048",
   fontSize: 20,
+  alignSelf: "center"
 }));
 
 const InviteBox = styled(Box)(() => ({
@@ -59,8 +60,9 @@ const PersonalLink: React.FC<PersonalLinkProps> = ({ link }) => {
             variant="contained"
             sx={{
               borderRadius: "8px",
-              padding: "8px 16px",
+              padding: "8px 16px 5px",
               fontFamily: "Baloo",
+              textTransform: "none"
             }}
           >
             Copy

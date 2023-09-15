@@ -10,8 +10,8 @@ const Header: React.FC = () => {
     toggleSideOpenD,
     toggleSideOpenM,
     toggleWalletDialog,
-    _setConnectWalletAnchor,
-    _setSelectNetworkAnchor
+    handleConnectWalletAnchor,
+    handleSelectNetworkAnchor
   } = useRoot();
 
   return (
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
             borderRadius: "20px",
             fontFamily: "Baloo",
           }}
-          onClick={_setSelectNetworkAnchor}
+          onClick={handleSelectNetworkAnchor}
         >
           Select Network
         </Button>
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
             borderRadius: "20px",
             fontFamily: "Baloo",
           }}
-          onClick={_setConnectWalletAnchor}
+          onClick={handleConnectWalletAnchor}
         >
           Change Wallet
         </Button>

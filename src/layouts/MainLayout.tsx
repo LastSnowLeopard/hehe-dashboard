@@ -5,6 +5,9 @@ import Box from '@mui/material/Box';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { useRoot } from "@/hooks/RootContext";
+import WalletDialog from "../components/WalletDialog";
+import ConnectWallet from "../components/ConnectWallet";
+import SelectNetwork from "@/components/SelectNetwork";
 
 interface MainProps {
   open?: boolean;
@@ -18,6 +21,7 @@ const Main = styled("main", {
   height: '100vh',
   padding: theme.spacing(3),
   paddingTop: "64px",
+  overflowY: 'scroll',
   backgroundColor: theme.palette.mode === "dark" ? "#272B30" : "#fff",
   color: theme.palette.mode === "dark" ? "#fff" : "#272B30",
   transition: theme.transitions.create("margin", {
@@ -43,6 +47,9 @@ const MainLayout: React.FC = () => {
       <Main open={sideOpenD} drawer_width={drawerWidth}>
         <Outlet />
       </Main>
+      <WalletDialog />
+      <ConnectWallet />
+      <SelectNetwork />
     </Box>
   );
 };

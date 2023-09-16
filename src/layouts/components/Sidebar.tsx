@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { IconButton } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -29,6 +30,16 @@ const ListItemButtonCustom = styled(ListItemButton)(() => ({
   padding: "8px 14px",
   color: "#6F767E",
   fontFamily: "BalooSemiBold",
+  "&.Mui-selected": {
+    boxShadow:
+      "0px 1px 1px 0px #FFFFFF1C inset, 0px -2px 1px 0px #00000066 inset",
+    "& svg path": {
+      fill: "#FDE048",
+    },
+    "& span": {
+      color: "#FDE048",
+    },
+  },
   "&:hover": {
     boxShadow:
       "0px 1px 1px 0px #FFFFFF1C inset, 0px -2px 1px 0px #00000066 inset",
@@ -82,12 +93,19 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ window }) => {
   const { drawerWidth, sideOpenD, toggleSideOpenD } = useRoot();
   const [open, setOpen] = React.useState(true);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setOpen(!open);
   };
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const handleListItemClick = (index: number, path: string) => {
+    setSelectedIndex(index);
+    navigate(path);
+  };
   return (
     <Drawer
       container={container}
@@ -119,7 +137,10 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
         component="nav"
         aria-labelledby="nested-list-subheader"
       >
-        <ListItemButtonCustom>
+        <ListItemButtonCustom
+          selected={selectedIndex === 1}
+          onClick={() => handleListItemClick(1, "/")}
+        >
           <ListItemIcon sx={{ minWidth: "40px" }}>
             <svg
               width="20"

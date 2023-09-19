@@ -10,7 +10,6 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import SVG from "@/components/SVG";
 import Chip from "@mui/material/Chip";
-import { Divider } from "@mui/material";
 
 const lists = [
   {
@@ -104,7 +103,7 @@ const RecentActivity: React.FC = () => {
           paddingBottom: "15px",
         }}
       >
-        <RootTypography fontSize={20}>Platform recent actinity</RootTypography>
+        <RootTypography fontSize={20}>Platform recent activity</RootTypography>
         <Tooltip title="Help">
           <IconButton>
             <HelpOutlineOutlinedIcon />

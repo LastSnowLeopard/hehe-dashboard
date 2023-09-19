@@ -1,95 +1,14 @@
 import { Box, Grid } from "@mui/material";
 import Profile from "./components/Profile";
-import StatisticCard from "@/components/StatisticCard";
+import Detail from "@/pages/Home/components/Detail";
 import PersonalLink from "./components/PersonalLink";
 import Profits from "./components/Profits";
 import Boost from "./components/Boost";
 import Award from "./components/Award";
 import RecentActivity from "./components/RecentActivity";
+import { partner, team, ratio, profit, members } from "../../constant";
+import Statistic from "./components/Statistic";
 
-const statistics = [
-  {
-    items: [
-      {
-        title: "Partners",
-        value: "29",
-        increase: true,
-        rate: 37.8,
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        title: "Team",
-        value: "34",
-        increase: false,
-        rate: 37.8,
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        title: "Ratio",
-        value: "250%",
-        increase: true,
-        rate: 37.8,
-      },
-    ],
-  },
-];
-
-const profit = {
-  heheAmount: 23,
-  heheRate: 0.1,
-  busdAmount: 25,
-  busdRate: 0.1,
-};
-
-const members = [
-  {
-    items: [
-      {
-        title: "Members",
-        value: "1537240",
-        increase: true,
-        rate: 37.8,
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        title: "Members received",
-        value: "1537240 BUSD",
-        increase: true,
-        rate: 37.8,
-      },
-      {
-        value: "1537240 BNB",
-        increase: true,
-        rate: 37.8,
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        title: "Transaction made",
-        value: "1537240",
-        increase: true,
-        rate: 37.8,
-      },
-      {
-        title: "Turnover BUSD",
-        value: "1537240",
-        increase: true,
-        rate: 37.8,
-      },
-    ],
-  },
-];
 const Home: React.FC = () => {
   return (
     <Box padding={3}>
@@ -98,11 +17,15 @@ const Home: React.FC = () => {
           <Profile />
         </Grid>
         <Grid container item lg={6} md={12} sm={12} xs={12} spacing={3}>
-          {statistics.map((item, index) => (
-            <Grid item lg={4} md={4} sm={4} xs={12} key={index}>
-              <StatisticCard items={item.items} />
-            </Grid>
-          ))}
+          <Grid item lg={4} md={4} sm={4} xs={12}>
+            <Statistic item={partner}/>
+          </Grid>
+          <Grid item lg={4} md={4} sm={4} xs={12}>
+            <Statistic item={team}/>
+          </Grid>
+          <Grid item lg={4} md={4} sm={4} xs={12}>
+            <Statistic item={ratio}/>
+          </Grid>
         </Grid>
         <Grid item lg={6} md={12} sm={12} xs={12}>
           <PersonalLink link="hehe.to/invite1238123" />
@@ -121,8 +44,8 @@ const Home: React.FC = () => {
         </Grid>
         <Grid container item lg={4} md={12} sm={12} xs={12} spacing={3} sx={{height: "100%"}}>
           {members.map((item, index) => (
-            <Grid item lg={12} md={4} sm={12} xs={12} key={index}>
-              <StatisticCard items={item.items} />
+            <Grid key={index} item lg={12} md={4} sm={12} xs={12}>
+              <Detail items={item.items} />
             </Grid>
           ))}
         </Grid>

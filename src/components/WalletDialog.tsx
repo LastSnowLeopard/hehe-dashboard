@@ -7,6 +7,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Paper } from "@mui/material";
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import MetaMask from "@/assets/wallet/metamask.png";
 import Torus from "@/assets/wallet/torus.png";
 import SVG from "./SVG";
@@ -69,10 +71,17 @@ const ListItemImg = styled("img")(() => ({
 
 const WalletDialog: React.FC = () => {
   const { walletDialogOpen, toggleWalletDialog } = useRoot();
+  const { connect } = useConnect({
+    connector: new MetaMaskConnector(),
+  })
   
   const handleDialogClose = () => {
     toggleWalletDialog();
   };
+
+  const metamaskConnect = () => {
+    connect();
+  }
 
   return (
     <Dialog onClose={handleDialogClose} open={walletDialogOpen}>
@@ -85,7 +94,7 @@ const WalletDialog: React.FC = () => {
             </ListItemIcon>
             <ListItemTextCustom primary="Browser connect" />
           </ListItemButtonCustom>
-          <ListItemButtonCustom>
+          <ListItemButtonCustom onClick={metamaskConnect}>
             <ListItemIcon sx={{ minWidth: "40px" }}>
               <ListItemImg src={MetaMask}></ListItemImg>
             </ListItemIcon>

@@ -40,7 +40,7 @@ const StatisticCard: React.FC<StatisticCardProps> = ({ items }) => {
         <>
           {item?.title && <CardTitle>{item.title}</CardTitle>}
           {item?.value && <CardTitle sx={{ fontSize: 32 }}>{item.value}</CardTitle>}
-          <Box display={"flex"} alignItems={"center"}>
+          <Box key={index} display={"flex"} alignItems={"center"}>
             {item?.increase ? (
               <SVG width={16} height={16} id="up-arrow-green" />
             ) : (

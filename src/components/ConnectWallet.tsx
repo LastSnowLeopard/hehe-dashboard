@@ -18,7 +18,7 @@ const ChangeButton = styled(Button)(() => ({
   color: "white",
   borderWidth: "2px",
   borderRadius: "8px",
-  padding: "8px 16px 3px",
+  padding: "8px 16px 5px",
   fontFamily: "Baloo",
   borderColor: "#272B30",
   backgroundColor: "transparent",

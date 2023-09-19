@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';

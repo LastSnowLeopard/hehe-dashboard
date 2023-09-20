@@ -70,10 +70,147 @@ const members = [
   },
 ];
 
+const boostItems = [
+  {
+    isActivated: true,
+    isSnow: true,
+    level: 1,
+    price: "1k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: true,
+    isSnow: false,
+    level: 2,
+    price: "2k",
+    users: 23,
+    refresh: 8,
+    isProfited: false,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: true,
+    isSnow: false,
+    level: 3,
+    price: "3k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 4,
+    price: "4k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: true
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 5,
+    price: "5k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 6,
+    price: "6k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 7,
+    price: "7k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 8,
+    price: "8k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 9,
+    price: "9k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 10,
+    price: "10k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 11,
+    price: "11k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+  {
+    isActivated: false,
+    isSnow: true,
+    level: 12,
+    price: "12k",
+    users: 23,
+    refresh: 8,
+    isProfited: true,
+    missedProfit: "1k",
+    showActiveBtn: false
+  },
+
+]
+
 export {
   partner,
   team,
   ratio,
   members,
-  profit
+  profit,
+  boostItems
 }

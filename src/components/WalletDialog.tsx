@@ -7,15 +7,16 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Paper } from "@mui/material";
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { useConnect } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
+// import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect'
 import MetaMask from "@/assets/wallet/metamask.png";
 import Torus from "@/assets/wallet/torus.png";
 import SVG from "./SVG";
 
 const DialogWrapper = styled(Paper)(({ theme }) => ({
   padding: "16px 15px",
-//   borderRadius: "8px",
   backgroundImage: "none",
   backgroundColor: theme.palette.mode === "dark" ? "#1A1D1F" : "#fff",
 }));
@@ -71,16 +72,44 @@ const ListItemImg = styled("img")(() => ({
 
 const WalletDialog: React.FC = () => {
   const { walletDialogOpen, toggleWalletDialog } = useRoot();
-  const { connect } = useConnect({
+
+  const { connect: _metamaskConnect } = useConnect({
     connector: new MetaMaskConnector(),
-  })
+  });
   
+  // const {connect: _walletConnect} = new WalletConnectConnector({
+  //   options: {
+  //     projectId: '...',
+  //     showQrModal: false,
+  //   },
+  // })
+
+  const {connect: _coinbaseConnect} = useConnect({
+    connector: new CoinbaseWalletConnector({
+      options: {
+        appName: 'wagmi.sh',
+        jsonRpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/yourAlchemyId',
+      },
+    })
+  })
+
   const handleDialogClose = () => {
     toggleWalletDialog();
   };
 
   const metamaskConnect = () => {
-    connect();
+    _metamaskConnect();
+    toggleWalletDialog();
+  }
+  
+  const walletConnect = () => {
+    // _walletConnect()
+    // toggleWalletDialog();
+  }
+  
+  const coinbaseConnect = () => {
+    _coinbaseConnect()
+    toggleWalletDialog();
   }
 
   return (
@@ -100,13 +129,13 @@ const WalletDialog: React.FC = () => {
             </ListItemIcon>
             <ListItemTextCustom primary="Metamask" />
           </ListItemButtonCustom>
-          <ListItemButtonCustom>
+          <ListItemButtonCustom onClick={walletConnect}>
             <ListItemIcon sx={{ minWidth: "40px" }}>
               <SVG id="wallet-connect" width={26} height={24} />
             </ListItemIcon>
             <ListItemTextCustom primary="Wallet Connect" />
           </ListItemButtonCustom>
-          <ListItemButtonCustom>
+          <ListItemButtonCustom onClick={coinbaseConnect}>
             <ListItemIcon sx={{ minWidth: "40px" }}>
               <SVG id="coinbase" width={25} height={24} />
             </ListItemIcon>

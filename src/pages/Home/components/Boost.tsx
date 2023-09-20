@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -11,20 +12,22 @@ const RootBox = styled(Box)(() => ({
   padding: "16px 24px",
   borderRadius: "12px",
   background: 'radial-gradient(66.68% 64.75% at 63.2% 81.39%, rgba(253, 224, 72, 0.20) 0%, rgba(253, 224, 72, 0.00) 100%), #1A1D1F'
-}))
+}));
 
 const FlexBox = styled(Box)(() => ({
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
-}))
+}));
 
 const RootTypography = styled(Typography)(() => ({
   fontFamily: "BalooSemiBold",
   fontWeight: 600
-}))
+}));
 
 const Boost: React.FC = () => {
+  const navigate = useNavigate();
+  
   return(
     <RootBox>
       <FlexBox>
@@ -47,6 +50,7 @@ const Boost: React.FC = () => {
               textTransform: "none"
             }}
             endIcon={<OpenInNewIcon />}
+            onClick={() => navigate('/boost')}
           >
             Preview
           </Button>

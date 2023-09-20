@@ -1,7 +1,11 @@
 import { Toolbar, IconButton, Button, Box } from "@mui/material";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import AppBar from "./AppBar";
 import { useRoot } from "@/hooks/RootContext";
+import { useAccount } from "wagmi";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import AppBar from "./AppBar";
+import { formatShortWalletAddress } from "../../utils/formatter";
+import SVG from "@/components/SVG";
 
 const Header: React.FC = () => {
   const {
@@ -10,9 +14,9 @@ const Header: React.FC = () => {
     toggleSideOpenD,
     toggleSideOpenM,
     toggleWalletDialog,
-    handleConnectWalletAnchor,
-    handleSelectNetworkAnchor
+    handleConnectWalletAnchor
   } = useRoot();
+  const { address, isConnecting, isConnected } = useAccount();
 
   return (
     <AppBar open={sideOpenD} drawer_width={drawerWidth}>
@@ -42,7 +46,39 @@ const Header: React.FC = () => {
         </IconButton>
         <Box component="div" sx={{ flexGrow: 1 }}></Box>
         <Box display={"flex"} gap={1}>
-          <Button
+          {isConnected ? (
+            <Button
+              color="primary"
+              variant="contained"
+              size="small"
+              sx={{
+                padding: "6px 20px 7px",
+                borderRadius: "20px",
+                fontFamily: "Baloo",
+                lineHeight: "10px"
+              }}
+              onClick={handleConnectWalletAnchor}
+              startIcon={<SVG id="wallet" width={24} height={24} />}
+              endIcon={<KeyboardArrowDownIcon />}
+            >
+              {address && formatShortWalletAddress(address)}
+            </Button>
+          ) : (
+            <Button
+              color="primary"
+              variant="contained"
+              size="small"
+              sx={{
+                padding: "8px 20px 3px",
+                borderRadius: "20px",
+                fontFamily: "Baloo",
+              }}
+              onClick={toggleWalletDialog}
+            >
+              {isConnecting ? "Connecting..." : "Wallet Connect"}
+            </Button>
+          )}
+          {/* <Button
             color="primary"
             variant="contained"
             size="small"
@@ -54,33 +90,7 @@ const Header: React.FC = () => {
             onClick={handleSelectNetworkAnchor}
           >
             Select Network
-          </Button>
-          <Button
-            color="primary"
-            variant="contained"
-            size="small"
-            sx={{
-              padding: "8px 20px 3px",
-              borderRadius: "20px",
-              fontFamily: "Baloo",
-            }}
-            onClick={handleConnectWalletAnchor}
-          >
-            Change Wallet
-          </Button>
-          <Button
-            color="primary"
-            variant="contained"
-            size="small"
-            sx={{
-              padding: "8px 20px 3px",
-              borderRadius: "20px",
-              fontFamily: "Baloo",
-            }}
-            onClick={toggleWalletDialog}
-          >
-            Wallet Connect
-          </Button>
+          </Button> */}
         </Box>
       </Toolbar>
     </AppBar>

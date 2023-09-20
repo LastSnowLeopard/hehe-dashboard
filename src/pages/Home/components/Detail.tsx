@@ -24,7 +24,7 @@ const Detail: React.FC<DetailProps> = ({ items }) => {
   return (
     <CardCustom>
       {items.map((item, index) => (
-        <Fragment>
+        <Fragment key={index}>
           <CardContent item={item} key={index} />
           {index < items.length - 1 && <Divider sx={{margin: "5px 0px"}} />}
         </Fragment>

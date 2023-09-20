@@ -85,7 +85,7 @@ const Profits: React.FC<ProfitsProps> = ({ profit }) => {
       <CustomBox flexDirection={"column"}>
         <CustomBox justifyContent={"space-between"}>
           <Box display={"flex"} gap={1}>
-            <TokenImg src={HeheImg}></TokenImg>
+            <TokenImg src={HeheImg} />
             <CardTitle fontSize={24}>{heheAmount} Hehe</CardTitle>
           </Box>
           <Box display={"flex"} alignItems={"center"}>

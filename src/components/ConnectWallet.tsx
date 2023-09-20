@@ -1,16 +1,21 @@
 import React from "react";
 import { useRoot } from "@/hooks/RootContext";
 import { styled } from "@mui/material/styles";
+import { useAccount, useDisconnect, useBalance } from "wagmi";
 import Typography from "@mui/material/Typography";
 import Popover from "@mui/material/Popover";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import SVG from "./SVG";
+import { formatBalance, formatLongWalletAddress } from "../utils/formatter";
 
 const DisconnectButton = styled(Button)(() => ({
   height: "50px",
   padding: "8px 16px",
+  textTransform: "none"
 }));
 
 const ChangeButton = styled(Button)(() => ({
@@ -20,6 +25,7 @@ const ChangeButton = styled(Button)(() => ({
   borderRadius: "8px",
   padding: "8px 16px 5px",
   fontFamily: "Baloo",
+  textTransform: "none",
   borderColor: "#272B30",
   backgroundColor: "transparent",
   "&:hover": {
@@ -40,6 +46,7 @@ const BlackButton = styled(Button)(() => ({
   "&:hover": {
     backgroundColor: "#1A1D1F",
   },
+  textTransform: "none"
 }));
 
 const PopUpBox = styled(Box)(() => ({
@@ -78,11 +85,44 @@ const WalletAddress = styled(Typography)(() => ({
 }));
 
 const ConnectWallet: React.FC = () => {
-  const { connectWalletAnchor, closeConnectWallet } = useRoot();
+  const [tooltipOpen, setTooltipOpen] = React.useState(false);
+  const { 
+    connectWalletAnchor, 
+    closeConnectWallet,
+    handleSelectNetworkAnchor 
+  } = useRoot();
+  const { address, connector } = useAccount()
+  const { data, isLoading } = useBalance({
+    address: address as `0x${string}` | undefined,
+  });
+  
+  const toogleTooltip = () => {
+    setTooltipOpen((prev) => !prev);
+  };
+
+  const { disconnect } = useDisconnect()
 
   const handleClose = () => {
     closeConnectWallet();
   };
+
+  const walletDisconnect = () => {
+    disconnect();
+    handleClose();
+  };
+
+  const explorerWallet = () => {
+    window.open(`https://etherscan.io/address/${address}`, '_blank')
+  };
+
+  const copyWalletAddress = (address: string) => {
+    navigator.clipboard.writeText(address);
+    toogleTooltip();
+  };
+
+  const closeTooltip = () => {
+    setTooltipOpen(false)
+  }
 
   const open = Boolean(connectWalletAnchor);
   const id = open ? "simple-popover" : undefined;
@@ -106,12 +146,21 @@ const ConnectWallet: React.FC = () => {
       <PopUpBox>
         <BoxCustom>
           <Box>
-            <Typography sx={{ fontSize: "18px", color: "#6F767E" }}>
-              Connected with Metamask
+            <Typography 
+              sx={{ 
+                fontSize: "18px", 
+                color: "#6F767E" 
+                }}
+              >
+              {`Connected with ${connector?.name}`}
             </Typography>
           </Box>
           <ButtonWrapper>
-            <ChangeButton variant="outlined" size="large">
+            <ChangeButton 
+              variant="outlined" 
+              size="large" 
+              onClick={handleSelectNetworkAnchor}
+            >
               Change
             </ChangeButton>
             <DisconnectButton
@@ -125,27 +174,53 @@ const ConnectWallet: React.FC = () => {
                 borderColor: "#272B30",
                 fontFamily: "Baloo",
               }}
+              onClick={walletDisconnect}
             >
               Disconnect
             </DisconnectButton>
           </ButtonWrapper>
         </BoxCustom>
-        <BoxCustom sx={{ backgroundColor: "#272B30", padding: "12px" }}>
+        <BoxCustom sx={{ 
+          backgroundColor: "#272B30", 
+          padding: "12px" 
+          }}
+        >
           <Box>
             <BoxCustom>
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               <Box>
-                <WalletAddress>0xaDJd...asdef48</WalletAddress>
+                <WalletAddress>
+                  {
+                    isLoading ? "Calculating..." :
+                    address && formatLongWalletAddress(address)
+                  }
+                </WalletAddress>
                 <CoinBox>
                   <SVG id="coin" width={24} height={24} />
-                  <WalletAddress>0.24</WalletAddress>
+                  <WalletAddress>
+                    {formatBalance(data?.formatted)} {data?.symbol}
+                  </WalletAddress>
                 </CoinBox>
               </Box>
             </BoxCustom>
           </Box>
           <ButtonWrapper>
-            <BlackButton>Explorer</BlackButton>
-            <BlackButton>Copy</BlackButton>
+            <BlackButton onClick={explorerWallet}>Explorer</BlackButton>
+            <ClickAwayListener onClickAway={closeTooltip}>
+              <Tooltip 
+                PopperProps={{
+                  disablePortal: true,
+                }}
+                open={tooltipOpen} 
+                onClose={toogleTooltip} 
+                onOpen={toogleTooltip} 
+                disableFocusListener
+                disableHoverListener
+                disableTouchListener
+                title="Copied to clilboard!">
+                <BlackButton onClick={() => address && copyWalletAddress(address)}>Copy</BlackButton>
+              </Tooltip>
+            </ClickAwayListener>
           </ButtonWrapper>
         </BoxCustom>
       </PopUpBox>

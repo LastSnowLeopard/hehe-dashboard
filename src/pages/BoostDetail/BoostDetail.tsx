@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 
-import BoostDetailHeader from "./BoostDetailHeader"
+import BoostDetailHeader from "./components/BoostDetailHeader"
 import { boostDetail } from "../../constant";
-import BoostBody from "./BoostBody";
-import Overview from "../Boost/Overview";
+import BoostBody from "./components/BoostBody";
+import Overview from "../Boost/components/Overview";
 
 const BoostDetail: React.FC = () => {
   return(

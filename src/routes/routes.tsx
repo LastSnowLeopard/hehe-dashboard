@@ -3,7 +3,7 @@ import MainLayout from "@/layouts/MainLayout";
 import Home from "@/pages/Home";
 import { NotFound } from "@/pages/Errors";
 import Boost from "@/pages/Boost";
-import BoostDetail from "@/pages/BoostDetail/BoostDetail";
+import BoostDetail from "@/pages/BoostDetail";
 
 const routes: RouteObject[] = [
   {

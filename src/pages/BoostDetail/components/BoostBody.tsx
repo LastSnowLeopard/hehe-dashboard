@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles"
 import Box from "@mui/material/Box"
 import BoostItem from "./BoostItem"
-import { boostDetail } from "../../constant";
+import { boostDetail } from "../../../constant";
 import Typography from "@mui/material/Typography";
 import SVG from "@/components/SVG";
 

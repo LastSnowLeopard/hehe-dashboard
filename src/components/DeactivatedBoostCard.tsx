@@ -110,7 +110,7 @@ const DeactivatedBoostCard: React.FC<DeactivatedBoostCardProps> = ({ item }) => 
         <CenterBox>
           <Box display={"flex"} gap={1}>
             <TokenImg src={HeheImg} />
-            <RootTypography>11{item?.price}</RootTypography>
+            <RootTypography>{item?.price}</RootTypography>
           </Box>
           <CenterCircle>
             <RootTypography>lvl {item?.level}</RootTypography>

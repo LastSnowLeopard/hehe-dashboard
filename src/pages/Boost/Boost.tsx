@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 import BoostCard from "@/components/BoostCard";
 import DeactivatedBoostCard from "@/components/DeactivatedBoostCard";
 import { boostItems } from "../../constant";
-import BoostHeader from "./BoostHeader";
-import Overview from "./Overview";
+import BoostHeader from "./components/BoostHeader";
+import Overview from "./components/Overview";
 
 const Boost: React.FC = () => {
   return (

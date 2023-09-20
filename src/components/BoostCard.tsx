@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
@@ -10,7 +11,8 @@ const RootBox = styled(Box)(() => ({
   height: 191,
   position: "relative",
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
+  cursor: "pointer"
 }))
 
 const BackgroundCircle = styled(Box)(() => ({
@@ -106,16 +108,18 @@ const FlexBox = styled(Box)(() => ({
 const LeftEllips = styled("div")(() => ({
   position: "absolute",
   top: "50%",
-  left: "0%",
+  left: "-2px",
+  zIndex: 5,
   transform: "translateY(-50%)"
-}))
+}));
 
 const RightEllips = styled("div")(() => ({
   position: "absolute",
   top: "50%",
-  right: "0%",
+  right: "-2px",
+  zIndex: 5,
   transform: "translateY(-50%)"
-}))
+}));
 
 const levelColors = [
   "#596AFF",
@@ -142,8 +146,14 @@ interface BoostCardProps {
 }
 
 const BoostCard: React.FC<BoostCardProps> = ({ item }) => {
+  const navigate = useNavigate();
+
+  const goDetail = () => {
+    navigate('/boost/123');
+  }
+
   return(
-    <RootBox>
+    <RootBox onClick={goDetail}>
       {item && (
         <Fragment>
           <BackgroundCircle bgcolor={levelColors[item?.level - 1]} />
@@ -185,10 +195,10 @@ const BoostCard: React.FC<BoostCardProps> = ({ item }) => {
         </Fragment>
       )}
       <LeftEllips>
-        <SVG id='left-ellips' width={10} height={6} />
+        <SVG id='left-arrow-gray' width={10} height={6} />
       </LeftEllips>
       <RightEllips>
-        <SVG id='right-ellips' width={10} height={6} />
+        <SVG id='right-arrow-gray' width={10} height={6} />
       </RightEllips>
     </RootBox>
   )

@@ -75,7 +75,6 @@ const TopCircle = styled(Box)(() => ({
   transform: "translateX(-50%)",
   border: "4px solid #fff",
   borderRadius: "50%",
-  backgroundColor: "#596AFF",
   zIndex: 4
 }))
 
@@ -122,6 +121,11 @@ const levelColors = [
   "#596AFF",
   "#FF6A55",
   "#FDE048"
+]
+
+const fontColors = [
+  "#000",
+  "#fff",
 ]
 
 interface BoostCardProps {
@@ -174,9 +178,9 @@ const BoostCard: React.FC<BoostCardProps> = ({ item }) => {
             }
           </RadialBackground>
           <BottomCircle />
-          <TopCircle paddingTop={item?.isSnow ? "5px" : "0px"} justifyContent={item?.isSnow ? "start" : "center"}>
+          <TopCircle bgcolor={levelColors[item?.level - 1]} paddingTop={item?.isSnow ? "5px" : "0px"} justifyContent={item?.isSnow ? "start" : "center"}>
             {item?.isSnow && <SVG id="snow" width={10} height={11} />}
-            <RootTypography>lvl {item?.level}</RootTypography>
+            <RootTypography color={fontColors[item?.level % 3]}>lvl {item?.level}</RootTypography>
           </TopCircle>
         </Fragment>
       )}

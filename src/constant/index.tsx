@@ -203,8 +203,18 @@ const boostItems = [
     missedProfit: "1k",
     showActiveBtn: false
   },
+];
 
-]
+const boostDetail = {
+  level: 3,
+  id: "id 23123",
+  cycle: 9,
+  price: "2k",
+  hehe: 5432,
+  usdt: 24,
+  users: 23,
+  refresh: 8,
+};
 
 export {
   partner,
@@ -212,5 +222,6 @@ export {
   ratio,
   members,
   profit,
-  boostItems
+  boostItems,
+  boostDetail
 }

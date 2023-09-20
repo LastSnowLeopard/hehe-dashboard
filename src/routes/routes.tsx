@@ -3,6 +3,7 @@ import MainLayout from "@/layouts/MainLayout";
 import Home from "@/pages/Home";
 import { NotFound } from "@/pages/Errors";
 import Boost from "@/pages/Boost";
+import BoostDetail from "@/pages/BoostDetail/BoostDetail";
 
 const routes: RouteObject[] = [
   {
@@ -12,6 +13,7 @@ const routes: RouteObject[] = [
       { path: "*", element: <Navigate to="/404" /> },
       { path: "/", element: <Home /> },
       { path: "/boost", element: <Boost /> },
+      { path: "/boost/:id", element: <BoostDetail /> },
       { path: "404", element: <NotFound /> },
     ],
   },

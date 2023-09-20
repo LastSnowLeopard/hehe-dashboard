@@ -203,4 +203,16 @@
       <path d="M11.7333 0.345947C9.4125 0.345947 7.275 1.19595 5.6375 2.59595C5.4125 2.77511 5.30417 3.05845 5.35417 3.34178C5.40417 3.62511 5.6 3.85428 5.87083 3.95011C6.14167 4.04178 6.44167 3.97928 6.65417 3.78345C8.02083 2.61678 9.79167 1.91261 11.7333 1.91261C15.8 1.91261 19.125 4.99178 19.5167 8.95011H17.2083L20.3375 13.6459L23.4667 8.95011H21.0792C20.6792 4.14178 16.6458 0.345947 11.7333 0.345947ZM3.12917 5.82095L0 10.5168H2.3875C2.7875 15.3251 6.82083 19.1209 11.7333 19.1209C14.0542 19.1209 16.1917 18.2709 17.8292 16.8709C18.0542 16.6918 18.1625 16.4084 18.1125 16.1251C18.0625 15.8418 17.8667 15.6126 17.5958 15.5168C17.325 15.4251 17.025 15.4876 16.8125 15.6834C15.4458 16.8501 13.675 17.5543 11.7333 17.5543C7.66667 17.5543 4.34167 14.4751 3.95 10.5168H6.25833L3.12917 5.82095Z" fill="#83BF6E"/>
     </svg>
   </symbol>
+  <symbol id="left-arrow-black" viewBox="0 0 24 20">
+    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 16.5L1 9L8.5 1.5" stroke="#111315" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 9L1 9" stroke="#111315" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </symbol>
+  <symbol id="right-arrow-black" viewBox="0 0 20 18">
+    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.5 1.5L19 9L11.5 16.5" stroke="#111315" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 9L19 9" stroke="#111315" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </symbol>
 </svg>

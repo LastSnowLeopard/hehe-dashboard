@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { useNavigate } from 'react-router-dom';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -104,6 +105,11 @@ interface DeactivatedBoostCardProps {
 }
 
 const DeactivatedBoostCard: React.FC<DeactivatedBoostCardProps> = ({ item }) => {
+  const navigate = useNavigate();
+
+  const goDetail = () => {
+    navigate('/boost/123');
+  }
   return(
     <RootBox>
       <CircleWithTwoSemiSphere>
@@ -115,7 +121,7 @@ const DeactivatedBoostCard: React.FC<DeactivatedBoostCardProps> = ({ item }) => 
           <CenterCircle>
             <RootTypography>lvl {item?.level}</RootTypography>
           </CenterCircle>
-          <ActivateButton variant="contained" sx={{visibility: item?.showActiveBtn ? 'visible' : 'hidden' }}>Activate</ActivateButton>
+          <ActivateButton variant="contained" sx={{visibility: item?.showActiveBtn ? 'visible' : 'hidden' }} onClick={goDetail}>Activate</ActivateButton>
         </CenterBox>
       </CircleWithTwoSemiSphere>
     </RootBox>

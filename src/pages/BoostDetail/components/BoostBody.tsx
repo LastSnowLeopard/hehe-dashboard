@@ -33,13 +33,13 @@ const FlexBox = styled(Box)(() => ({
 
 const BoostBody: React.FC = () => {
   return (
-    <FlexBox gap={8} marginY={9}>
-      <RootCircle bgcolor={"#fff"} borderColor={"#111315"} gap={1}>
+    <FlexBox gap={8} marginY={9} flexDirection={{xs: "column", lg: "row"}}>
+      <RootCircle bgcolor={"#fff"} borderColor={"#111315"} gap={1} display={{xs: 'none', lg: 'flex'}}>
         <SVG id="left-arrow-black" width={20} height={18} />
         <RootTypography sx={{fontSize: "13px"}} color={"black"}>Level 1</RootTypography>
       </RootCircle>
       <BoostItem item={boostDetail} />
-      <RootCircle bgcolor={"#fff"} borderColor={"#111315"} gap={1}>
+      <RootCircle bgcolor={"#fff"} borderColor={"#111315"} gap={1} display={{xs: 'none', lg: 'flex'}}>
         <RootTypography sx={{fontSize: "13px"}} color={"black"}>Level 3</RootTypography>
         <SVG id="right-arrow-black" width={20} height={18} />
       </RootCircle>

@@ -82,7 +82,7 @@ const RootList = styled(List)(() => ({
 
 const RootDivider = styled(Divider)(() => ({
   margin: "8px 0px"
-}))
+}));
 
 const PaginationArrow = styled("div")(() => ({
   width: "40px",

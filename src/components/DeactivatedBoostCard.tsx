@@ -110,6 +110,7 @@ const DeactivatedBoostCard: React.FC<DeactivatedBoostCardProps> = ({ item }) => 
   const goDetail = () => {
     navigate('/boost/123');
   }
+  
   return(
     <RootBox>
       <CircleWithTwoSemiSphere>

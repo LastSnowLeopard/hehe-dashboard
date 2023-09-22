@@ -31,7 +31,7 @@ const CardTitle = styled(Typography)(() => ({
 const CustomDivider = styled(Divider)(() => ({
   backgroundColor: "#272B30",
   margin: "2px 0px"
-}))
+}));
 
 const StatisticCard: React.FC<StatisticCardProps> = ({ items }) => {
   return (

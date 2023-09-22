@@ -8,7 +8,7 @@ const RootBox = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   gap: "8px"
-}))
+}));
 
 const ChangeButton = styled(Button)(() => ({
   height: "50px",

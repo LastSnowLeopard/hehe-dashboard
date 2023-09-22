@@ -134,7 +134,7 @@ const ConnectWallet: React.FC = () => {
 
   const closeTooltip = () => {
     setTooltipOpen(false)
-  }
+  };
 
   const open = Boolean(connectWalletAnchor);
   const id = open ? "simple-popover" : undefined;

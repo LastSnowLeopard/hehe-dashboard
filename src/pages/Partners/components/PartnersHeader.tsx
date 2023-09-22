@@ -18,7 +18,6 @@ const IDChip = styled(Chip)(() => ({
   borderRadius: "4px"
 }));
 
-
 const PartnersHeader: React.FC = () => {
   return(
     <Box display={"flex"} gap={1}>

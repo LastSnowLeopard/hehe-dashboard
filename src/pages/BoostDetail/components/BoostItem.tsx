@@ -16,7 +16,7 @@ const RootBox = styled(Box)(({ theme }) => ({
   position: "relative",
   display: "flex",
   justifyContent: "center"
-}))
+}));
 
 const BackgroundCircle = styled(Box)(({ theme }) => ({
   width: 543,
@@ -28,7 +28,7 @@ const BackgroundCircle = styled(Box)(({ theme }) => ({
   borderRadius: "100%",
   position: "absolute",
   zIndex: 1
-}))
+}));
 
 const EllipseBorder = styled(Box)(({ theme }) => ({
   width: 547,
@@ -48,7 +48,7 @@ const EllipseBorder = styled(Box)(({ theme }) => ({
   borderColor: "#fff",
   borderRadius: "50%",
   zIndex: 2
-}))
+}));
 
 const RadialBackground = styled(Box)(({ theme }) => ({
   width: 523,
@@ -72,7 +72,7 @@ const RadialBackground = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   paddingTop: "32px",
   zIndex: 4
-}))
+}));
 
 const BottomCircle = styled(Box)(({ theme }) => ({
   width: 185,
@@ -93,7 +93,7 @@ const BottomCircle = styled(Box)(({ theme }) => ({
   borderRadius: "50%",
   backgroundColor: "#272C32",
   zIndex: 3
-}))
+}));
 
 const TopCircle = styled(Box)(({ theme }) => ({
   width: 185,
@@ -116,7 +116,7 @@ const TopCircle = styled(Box)(({ theme }) => ({
   borderColor: "#fff",
   borderRadius: "50%",
   zIndex: 4
-}))
+}));
 
 const RootTypography = styled(Typography)(() => ({
   textAlign: "center",
@@ -160,7 +160,7 @@ const RootCircle = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center"
-}))
+}));
 
 const levelColors = [
   "#596AFF",

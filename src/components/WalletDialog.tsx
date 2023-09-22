@@ -90,7 +90,7 @@ const WalletDialog: React.FC = () => {
         jsonRpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/yourAlchemyId',
       },
     })
-  })
+  });
 
   const handleDialogClose = () => {
     toggleWalletDialog();
@@ -99,17 +99,17 @@ const WalletDialog: React.FC = () => {
   const metamaskConnect = () => {
     _metamaskConnect();
     toggleWalletDialog();
-  }
+  };
   
   const walletConnect = () => {
     // _walletConnect()
     // toggleWalletDialog();
-  }
+  };
   
   const coinbaseConnect = () => {
     _coinbaseConnect()
     toggleWalletDialog();
-  }
+  };
 
   return (
     <Dialog onClose={handleDialogClose} open={walletDialogOpen}>

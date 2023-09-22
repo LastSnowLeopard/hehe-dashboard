@@ -35,10 +35,6 @@ const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(even)': {
     backgroundColor: "#1A1D1F"
   },
-  // hide last border
-  // '& td, th': {
-  //   border: 0,
-  // },
 }));
 
 const IDChip = styled(Chip)(() => ({
@@ -54,7 +50,7 @@ const IDChip = styled(Chip)(() => ({
 
 const RootDivider = styled(Divider)(() => ({
   margin: "8px 0px"
-}))
+}));
 
 const PaginationArrow = styled("div")(() => ({
   width: "40px",
@@ -74,7 +70,6 @@ const PaginationArrow = styled("div")(() => ({
     },
   },
 }));
-
 
 function createData(
   date: string,
@@ -113,9 +108,7 @@ const PartnersBody: React.FC = () => {
         <TableBody>
           {rows.map((row, index) => (
             <StyledTableRow key={index}>
-              <StyledTableCell width={"150px"} component="th" scope="row">
-                {row.date}
-              </StyledTableCell>
+              <StyledTableCell width={"150px"} component="th" scope="row">{row.date}</StyledTableCell>
               <StyledTableCell width={"150px"} align="left">
                 <Box display={"flex"} alignItems={"center"} gap={1}>
                   {row.address}

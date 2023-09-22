@@ -61,7 +61,6 @@ const BlackButton = styled(Button)(({ theme }) => ({
 
 const PopUpBox = styled(Box)(() => ({
   gap: "16px",
-  // width: "450px",
   display: "flex",
   padding: "12px 15px",
   flexDirection: "column",

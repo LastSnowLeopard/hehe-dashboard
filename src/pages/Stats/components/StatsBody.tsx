@@ -36,10 +36,6 @@ const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(even)': {
     backgroundColor: "#1A1D1F"
   },
-  // hide last border
-  // '& td, th': {
-  //   border: 0,
-  // },
 }));
 
 const IDChip = styled(Chip)(() => ({

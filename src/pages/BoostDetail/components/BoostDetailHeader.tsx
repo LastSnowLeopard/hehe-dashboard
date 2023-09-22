@@ -7,7 +7,7 @@ import Chip from "@mui/material/Chip";
 const RootBox = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
-  gap: "8px"
+  gap: "8px",
 }));
 
 const ChangeButton = styled(Button)(() => ({
@@ -24,13 +24,13 @@ const ChangeButton = styled(Button)(() => ({
     borderColor: "#1A1D1F",
     backgroundColor: "#1A1D1F",
   },
-  textTransform: "none"
+  textTransform: "none",
 }));
 
 const Header = styled(Typography)(() => ({
   lineHeight: "40px",
   fontFamily: "BalooSemiBold",
-  alignSelf: "center"
+  alignSelf: "center",
 }));
 
 const IDChip = styled(Chip)(() => ({
@@ -40,14 +40,14 @@ const IDChip = styled(Chip)(() => ({
   fontWeight: 600,
   fontSize: 15,
   backgroundColor: "#FCF5B140",
-  borderRadius: "4px"
+  borderRadius: "4px",
 }));
 
 const RootTypography = styled(Typography)(() => ({
   textAlign: "center",
   fontFamily: "BalooSemiBold",
   fontWeight: 600,
-  lineHeight: "24px"
+  lineHeight: "24px",
 }));
 
 const CustomBox = styled(Box)(() => ({
@@ -57,36 +57,47 @@ const CustomBox = styled(Box)(() => ({
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "#1a1d1f",
-  borderRadius: "8px"
+  borderRadius: "8px",
 }));
 
 interface BoostDetailHeaderProps {
   item: {
-    level: number,
-    id: string,
-    cycle: number
-  }
+    level: number;
+    id: string;
+    cycle: number;
+  };
 }
 
 const BoostDetailHeader: React.FC<BoostDetailHeaderProps> = ({ item }) => {
   return (
     <RootBox>
-      <Box display={{xs: 'none', sm: 'block'}}>
+      <Box display={{ xs: "none", sm: "block" }}>
         <ChangeButton>Back</ChangeButton>
       </Box>
       <Box display={"flex"} justifyContent={"space-between"}>
-        <Header display={{xs: 'none', sm: 'block'}} fontSize={{xs: "15px", sm: "32px"}}>Level {item.level}</Header>
-        <ChangeButton sx={{display: {xs: 'block', sm: 'none'}}}>Back</ChangeButton>
+        <Header
+          display={{ xs: "none", sm: "block" }}
+          fontSize={{ xs: "15px", sm: "32px" }}
+        >
+          Level {item.level}
+        </Header>
+        <ChangeButton sx={{ display: { xs: "block", sm: "none" } }}>
+          Back
+        </ChangeButton>
         <CustomBox border={"2px solid ###1A1D1F"}>
-          <RootTypography fontSize={{xs: "15px", sm: "24px"}}>Upline</RootTypography>
+          <RootTypography fontSize={{ xs: "15px", sm: "24px" }}>
+            Upline
+          </RootTypography>
           <IDChip label={item.id} />
         </CustomBox>
         <CustomBox>
-          <RootTypography fontSize={{xs: "15px", sm: "24px"}}>Cycle: {item.cycle}</RootTypography>
+          <RootTypography fontSize={{ xs: "15px", sm: "24px" }}>
+            Cycle: {item.cycle}
+          </RootTypography>
         </CustomBox>
       </Box>
     </RootBox>
-  )
-}
+  );
+};
 
 export default BoostDetailHeader;

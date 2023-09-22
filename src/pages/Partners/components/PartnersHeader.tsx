@@ -15,16 +15,16 @@ const IDChip = styled(Chip)(() => ({
   fontWeight: 600,
   fontSize: 15,
   backgroundColor: "#FCF5B140",
-  borderRadius: "4px"
+  borderRadius: "4px",
 }));
 
 const PartnersHeader: React.FC = () => {
-  return(
+  return (
     <Box display={"flex"} gap={1}>
       <RootTypography>Partners</RootTypography>
-      <IDChip label="ID 4623"/>
+      <IDChip label="ID 4623" />
     </Box>
-  )
-}
+  );
+};
 
 export default PartnersHeader;

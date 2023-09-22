@@ -65,6 +65,16 @@ const ListItemButtonSub = styled(ListItemButton)(() => ({
   color: "#6F767E",
   fontFamily: "BalooSemiBold",
   position: "relative",
+  "&.Mui-selected": {
+    boxShadow:
+      "0px 1px 1px 0px #FFFFFF1C inset, 0px -2px 1px 0px #00000066 inset",
+    "& svg path": {
+      fill: "#FDE048",
+    },
+    "& span": {
+      color: "#FDE048",
+    },
+  },
   "&:hover": {
     boxShadow:
       "0px 1px 1px 0px #FFFFFF1C inset, 0px -2px 1px 0px #00000066 inset",

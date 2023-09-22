@@ -1,9 +1,7 @@
-import SVG from "./SVG";
-
 const LoadingView: React.FC = () => {
   return (
     <div>
-      <SVG id="loading" />
+      <p>Loading</p>
     </div>
   );
 };

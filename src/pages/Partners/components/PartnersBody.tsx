@@ -91,6 +91,11 @@ const rows = [
   createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
   createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
   createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
+  createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
+  createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
+  createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
+  createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
+  createData("20.04.2023 14:23", "0x2323...1csd3", "ID234234", "5,200 HEHE"),
 ];
 
 const PartnersBody: React.FC = () => {

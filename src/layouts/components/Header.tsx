@@ -2,7 +2,7 @@ import { Toolbar, IconButton, Button, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useRoot } from "@/hooks/RootContext";
 import { useAccount } from "wagmi";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AppBar from "./AppBar";
 import { formatShortWalletAddress } from "../../utils/formatter";
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const {
     drawerWidth,
     sideOpenD,
-    toggleSideOpenD,
+    // toggleSideOpenD,
     toggleSideOpenM,
     toggleWalletDialog,
     handleConnectWalletAnchor

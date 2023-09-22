@@ -4,6 +4,8 @@ import Home from "@/pages/Home";
 import { NotFound } from "@/pages/Errors";
 import Boost from "@/pages/Boost";
 import BoostDetail from "@/pages/BoostDetail";
+import Partners from "@/pages/Partners";
+import Stats from "@/pages/Stats";
 
 const routes: RouteObject[] = [
   {
@@ -14,6 +16,8 @@ const routes: RouteObject[] = [
       { path: "/", element: <Home /> },
       { path: "/boost", element: <Boost /> },
       { path: "/boost/:id", element: <BoostDetail /> },
+      { path: "/partners", element: <Partners /> },
+      { path: "/stats", element: <Stats /> },
       { path: "404", element: <NotFound /> },
     ],
   },

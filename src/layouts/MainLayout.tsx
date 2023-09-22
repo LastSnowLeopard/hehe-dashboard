@@ -20,7 +20,7 @@ const Main = styled("main", {
   flexGrow: 1,
   height: '100vh',
   padding: theme.spacing(1),
-  paddingTop: "96px",
+  paddingTop: "64px",
   overflowY: 'scroll',
   backgroundColor: theme.palette.mode === "dark" ? "#272B30" : "#fff",
   color: theme.palette.mode === "dark" ? "#fff" : "#272B30",

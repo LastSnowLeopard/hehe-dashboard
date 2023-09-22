@@ -159,7 +159,10 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
           </ListItemIcon>
           <ListItemTextCustom primary="Dashboard" />
         </ListItemButtonCustom>
-        <ListItemButtonCustom onClick={handleClick}>
+        <ListItemButtonCustom
+          selected={selectedIndex === 2 || selectedIndex === 3 || selectedIndex === 4}
+          onClick={handleClick}
+        >
           <ListItemIcon sx={{ minWidth: "40px" }}>
             <svg
               width="24"
@@ -201,13 +204,22 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
               },
             }}
           >
-            <ListItemButtonSub>
+            <ListItemButtonSub
+              selected={selectedIndex === 2}
+              onClick={() => handleListItemClick(2, "/partners")}
+            >
               <ListItemTextCustom primary="Patners" />
             </ListItemButtonSub>
-            <ListItemButtonSub>
+            <ListItemButtonSub
+              selected={selectedIndex === 3}
+              onClick={() => handleListItemClick(3, "/links")}
+            >
               <ListItemTextCustom primary="Links" />
             </ListItemButtonSub>
-            <ListItemButtonSub>
+            <ListItemButtonSub
+              selected={selectedIndex === 4}
+              onClick={() => handleListItemClick(4, "/stats")}
+            >
               <ListItemTextCustom primary="Stats" />
             </ListItemButtonSub>
           </List>

@@ -12,13 +12,16 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import SVG from "./SVG";
 import { formatBalance, formatLongWalletAddress } from "../utils/formatter";
 
-const DisconnectButton = styled(Button)(() => ({
+const DisconnectButton = styled(Button)(({ theme }) => ({
   height: "50px",
   padding: "8px 16px",
-  textTransform: "none"
+  textTransform: "none",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "13px"
+  }
 }));
 
-const ChangeButton = styled(Button)(() => ({
+const ChangeButton = styled(Button)(({ theme }) => ({
   height: "50px",
   color: "white",
   borderWidth: "2px",
@@ -33,10 +36,14 @@ const ChangeButton = styled(Button)(() => ({
     borderColor: "#272B30",
     backgroundColor: "#1A1D1F",
   },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "13px"
+  }
 }));
 
-const BlackButton = styled(Button)(() => ({
+const BlackButton = styled(Button)(({ theme }) => ({
   height: "50px",
+  width: "auto",
   color: "white",
   borderRadius: "8px",
   padding: "8px 16px",
@@ -46,24 +53,30 @@ const BlackButton = styled(Button)(() => ({
   "&:hover": {
     backgroundColor: "#1A1D1F",
   },
-  textTransform: "none"
+  textTransform: "none",
+  [theme.breakpoints.down("sm")]: {
+    width: "50%"
+  }
 }));
 
 const PopUpBox = styled(Box)(() => ({
   gap: "16px",
-  width: "450px",
+  // width: "450px",
   display: "flex",
   padding: "12px 15px",
   flexDirection: "column",
   backgroundColor: "#1A1D1F",
 }));
 
-const ButtonWrapper = styled(Box)(() => ({
+const ButtonWrapper = styled(Box)(({ theme }) => ({
   gap: "8px",
   display: "flex",
+  [theme.breakpoints.down('sm')]: {
+    width: "100%"
+  }
 }));
 
-const BoxCustom = styled(Box)(() => ({
+const RootBox = styled(Box)(() => ({
   gap: "8px",
   display: "flex",
   borderRadius: "8px",
@@ -144,7 +157,7 @@ const ConnectWallet: React.FC = () => {
       sx={{ backgroundColor: "#00000080" }}
     >
       <PopUpBox>
-        <BoxCustom>
+        <RootBox sx={{justifyContent: { xs: 'flex-start'}}}>
           <Box>
             <Typography 
               sx={{ 
@@ -179,14 +192,15 @@ const ConnectWallet: React.FC = () => {
               Disconnect
             </DisconnectButton>
           </ButtonWrapper>
-        </BoxCustom>
-        <BoxCustom sx={{ 
+        </RootBox>
+        <RootBox sx={{ 
           backgroundColor: "#272B30", 
-          padding: "12px" 
+          padding: "12px",
+          flexDirection: { xs: "column", sm: "row"}
           }}
         >
           <Box>
-            <BoxCustom>
+            <RootBox sx={{justifyContent: { xs: 'flex-start'}}}>
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               <Box>
                 <WalletAddress>
@@ -202,7 +216,7 @@ const ConnectWallet: React.FC = () => {
                   </WalletAddress>
                 </CoinBox>
               </Box>
-            </BoxCustom>
+            </RootBox>
           </Box>
           <ButtonWrapper>
             <BlackButton onClick={explorerWallet}>Explorer</BlackButton>
@@ -222,7 +236,7 @@ const ConnectWallet: React.FC = () => {
               </Tooltip>
             </ClickAwayListener>
           </ButtonWrapper>
-        </BoxCustom>
+        </RootBox>
       </PopUpBox>
     </Popover>
   );

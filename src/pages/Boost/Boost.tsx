@@ -8,7 +8,7 @@ import Overview from "./components/Overview";
 
 const Boost: React.FC = () => {
   return (
-    <Box display={"flex"} flexDirection={"column"} gap={3} padding={3}>
+    <Box display={"flex"} flexDirection={"column"} gap={3} padding={{ xs: 1, sm: 3}}>
       <BoostHeader />
       <Grid container spacing={3}>
         { 

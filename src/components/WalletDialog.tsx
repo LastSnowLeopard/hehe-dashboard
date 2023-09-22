@@ -28,7 +28,6 @@ const DialogTitleCustom = styled(DialogTitle)(() => ({
 }));
 
 const DialogFooter = styled(DialogTitle)(() => ({
-  width: "310px",
   fontSize: "12px",
   fontWeight: 700,
   margin: "auto",
@@ -39,7 +38,7 @@ const DialogFooter = styled(DialogTitle)(() => ({
 
 const ListCustom = styled(List)(() => ({
   gap: "8px",
-  width: "347px",
+  width: "auto",
   display: "flex",
   padding: "0px 16px",
   margin: "16px 0px",

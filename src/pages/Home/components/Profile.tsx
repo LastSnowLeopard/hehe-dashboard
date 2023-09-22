@@ -23,27 +23,31 @@ const InviteChip = styled(Chip)(() => ({
   borderRadius: "4px"
 }));
 
-const AvatarCustom = styled(Avatar)(() => ({
-  width: 94,
-  height: 94,
+const AvatarCustom = styled(Avatar)(({theme}) => ({
+    width: 94,
+    height: 94,
+  [theme.breakpoints.down('sm')]: {
+    width: 64,
+    height: 64,
+  },
   alignSelf: "center"
-}))
+}));
 
 const Profile: React.FC = () => {
   return (
-    <Box display={"flex"} gap={3}>
+    <Box display={"flex"} gap={1}>
       <AvatarCustom alt="Lee" />
       <Box alignSelf={"center"}>
         <Box display={"flex"}>
-          <WalletAddress>0xaDJd...ef48</WalletAddress>
+          <WalletAddress sx={{fontSize: {xs: 13, sm: 16}}}>0xaDJd...ef48</WalletAddress>
           <IconButton aria-label="delete">
             <ContentCopyIcon />
           </IconButton>
         </Box>
         <Box display={"flex"} gap={1}>
-          <WalletAddress>ID 4623</WalletAddress>
-          <InviteAddress>Invited 01.05.2024 by</InviteAddress>
-          <InviteChip label={"ID 4623"}/>
+          <WalletAddress sx={{fontSize: {xs: 13, sm: 16}}}>ID 4623</WalletAddress>
+          <InviteAddress sx={{fontSize: {xs: 13, sm: 16}}}>Invited 01.05.2024 by</InviteAddress>
+          <InviteChip sx={{fontSize: {xs: 13, sm: 16}}} label={"ID 4623"}/>
         </Box>
       </Box>
     </Box>

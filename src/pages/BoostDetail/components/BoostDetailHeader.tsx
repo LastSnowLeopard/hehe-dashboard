@@ -28,7 +28,6 @@ const ChangeButton = styled(Button)(() => ({
 }));
 
 const Header = styled(Typography)(() => ({
-  fontSize: "32px",
   lineHeight: "40px",
   fontFamily: "BalooSemiBold",
   alignSelf: "center"
@@ -72,17 +71,18 @@ interface BoostDetailHeaderProps {
 const BoostDetailHeader: React.FC<BoostDetailHeaderProps> = ({ item }) => {
   return (
     <RootBox>
-      <Box>
+      <Box display={{xs: 'none', sm: 'block'}}>
         <ChangeButton>Back</ChangeButton>
       </Box>
       <Box display={"flex"} justifyContent={"space-between"}>
-        <Header>Level {item.level}</Header>
+        <Header display={{xs: 'none', sm: 'block'}} fontSize={{xs: "15px", sm: "32px"}}>Level {item.level}</Header>
+        <ChangeButton sx={{display: {xs: 'block', sm: 'none'}}}>Back</ChangeButton>
         <CustomBox border={"2px solid ###1A1D1F"}>
-          <RootTypography fontSize={"24px"}>Upline</RootTypography>
+          <RootTypography fontSize={{xs: "15px", sm: "24px"}}>Upline</RootTypography>
           <IDChip label={item.id} />
         </CustomBox>
         <CustomBox>
-          <RootTypography fontSize={"24px"}>Cycle: {item.cycle}</RootTypography>
+          <RootTypography fontSize={{xs: "15px", sm: "24px"}}>Cycle: {item.cycle}</RootTypography>
         </CustomBox>
       </Box>
     </RootBox>

@@ -11,19 +11,19 @@ import Statistic from "./components/Statistic";
 
 const Home: React.FC = () => {
   return (
-    <Box padding={3}>
+    <Box sx={{padding: 1}}>
       <Grid container spacing={3}>
         <Grid item lg={6} md={12} sm={12} xs={12}>
           <Profile />
         </Grid>
-        <Grid container item lg={6} md={12} sm={12} xs={12} spacing={3}>
-          <Grid item lg={4} md={4} sm={4} xs={12}>
+        <Grid container item lg={6} md={12} sm={12} xs={12} spacing={1}>
+          <Grid item lg={4} md={4} sm={4} xs={4}>
             <Statistic item={partner}/>
           </Grid>
-          <Grid item lg={4} md={4} sm={4} xs={12}>
+          <Grid item lg={4} md={4} sm={4} xs={4}>
             <Statistic item={team}/>
           </Grid>
-          <Grid item lg={4} md={4} sm={4} xs={12}>
+          <Grid item lg={4} md={4} sm={4} xs={4}>
             <Statistic item={ratio}/>
           </Grid>
         </Grid>

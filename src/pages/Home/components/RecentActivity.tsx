@@ -38,11 +38,14 @@ const lists = [
   },
 ];
 
-const RootBox = styled(Box)(() => ({
+const RootBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "16px 24px",
+  [theme.breakpoints.down('sm')]: {
+    padding: "16px",
+  },
   borderRadius: "12px",
   gap: "24px",
   backgroundColor: "#1A1D1F",
@@ -114,19 +117,9 @@ const RecentActivity: React.FC = () => {
         {lists.map((list, index) => (
           <ListItem
             key={index}
-            secondaryAction={
-              <FlexBox>
-                <IconButton>
-                  <OpenInNewIcon sx={{ color: "#6F767E" }} />
-                </IconButton>
-                <RootTypography fontSize={15} sx={{ color: "#6F767E" }}>
-                  1 minute
-                </RootTypography>
-              </FlexBox>
-            }
-            sx={{ padding: "16px 12px" }}
+            sx={{ display: "flex", justifyContent: "space-between", paddingX: { xs: "0px", sm: "16px"} }}
           >
-            <FlexBox gap={3}>
+            <FlexBox sx={{gap: {xs: "8px", sm: "32px"}}}>
               <SVG
                 id={list?.increase ? "up-arrow-gray" : "down-arrow-gray"}
                 width={26}
@@ -140,6 +133,14 @@ const RecentActivity: React.FC = () => {
                 </RootTypography>
               </FlexBox>
             </FlexBox>
+            <FlexBox>
+                <IconButton>
+                  <OpenInNewIcon sx={{ color: "#6F767E" }} />
+                </IconButton>
+                <RootTypography sx={{ display: { xs: 'none', sm: 'block'}, color: "#6F767E" }} fontSize={15}>
+                  1 minute
+                </RootTypography>
+              </FlexBox>
           </ListItem>
         ))}
       </RootList>

@@ -15,7 +15,7 @@ interface ProfitsProps {
   };
 }
 
-const CardCustom = styled(Card)(() => ({
+const RootBox = styled(Card)(({ theme }) => ({
   borderRadius: 12,
   backgroundColor: "#1A1D1F",
   padding: "12px 24px",
@@ -23,7 +23,10 @@ const CardCustom = styled(Card)(() => ({
   position: "relative",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center"
+  alignItems: "center",
+  [theme.breakpoints.down('sm')]: {
+    padding: "12px"
+  }
 }));
 
 const CardTitle = styled(Typography)(() => ({
@@ -67,9 +70,9 @@ const Profits: React.FC<ProfitsProps> = ({ profit }) => {
   const { heheAmount, heheRate, busdAmount, busdRate } = profit;
 
   return (
-    <CardCustom>
+    <RootBox>
       <CustomBox justifyContent={"space-between"} padding={"8px 0px"}>
-        <CardTitle fontSize={24}>Profits</CardTitle>
+        <CardTitle sx={{fontSize: {xs: 20, sm: 24}}}>Profits</CardTitle>
         <Button
           variant="contained"
           sx={{
@@ -102,7 +105,7 @@ const Profits: React.FC<ProfitsProps> = ({ profit }) => {
         </CustomBox>
       </CustomBox>
       <ShowMoreButton size="small">Show more</ShowMoreButton>
-    </CardCustom>
+    </RootBox>
   );
 };
 

@@ -1,4 +1,5 @@
 import { Toolbar, IconButton, Button, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { useRoot } from "@/hooks/RootContext";
 import { useAccount } from "wagmi";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -6,6 +7,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AppBar from "./AppBar";
 import { formatShortWalletAddress } from "../../utils/formatter";
 import SVG from "@/components/SVG";
+import LogoImg from "@/assets/Logo.png";
+
+const Logo = styled("img")(() => ({
+  width: "48px",
+  height: "48px",
+}));
 
 const Header: React.FC = () => {
   const {
@@ -19,9 +26,14 @@ const Header: React.FC = () => {
   const { address, isConnecting, isConnected } = useAccount();
 
   return (
-    <AppBar open={sideOpenD} drawer_width={drawerWidth}>
-      <Toolbar>
-        <IconButton
+    <AppBar open={sideOpenD} drawer_width={drawerWidth} sx={{padding: { xs: 2, sm: 0}}}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between"
+        }}
+      >
+        {/* <IconButton
           edge="start"
           color="inherit"
           aria-label="open drawer"
@@ -32,19 +44,20 @@ const Header: React.FC = () => {
           }}
         >
           <ChevronRightIcon />
-        </IconButton>
-        <IconButton
+        </IconButton> */}
+        {/* <IconButton
           edge="start"
           color="inherit"
           aria-label="open drawer"
           onClick={toggleSideOpenM}
           sx={{
-            display: { xs: "inline-flex", md: "none" },
+            // display: { xs: "inline-flex", md: "none" },
           }}
         >
           <ChevronRightIcon />
-        </IconButton>
-        <Box component="div" sx={{ flexGrow: 1 }}></Box>
+        </IconButton> */}
+        <Box component="div" sx={{ flexGrow: 1, display: {xs: 'none', md: 'block'} }}></Box>
+        <Logo src={LogoImg} alt="logo" sx={{display: {xs: 'block', md: 'none'}}} />
         <Box display={"flex"} gap={1}>
           {isConnected ? (
             <Button
@@ -78,20 +91,16 @@ const Header: React.FC = () => {
               {isConnecting ? "Connecting..." : "Wallet Connect"}
             </Button>
           )}
-          {/* <Button
-            color="primary"
-            variant="contained"
-            size="small"
-            sx={{
-              padding: "8px 20px 3px",
-              borderRadius: "20px",
-              fontFamily: "Baloo",
-            }}
-            onClick={handleSelectNetworkAnchor}
-          >
-            Select Network
-          </Button> */}
         </Box>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={toggleSideOpenM}
+          sx={{display: {xs: 'block', md: 'none'}}}
+        >
+          <SVG id="menu" height={24} width={24} />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

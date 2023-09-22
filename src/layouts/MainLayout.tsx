@@ -19,8 +19,8 @@ const Main = styled("main", {
 })<MainProps>(({ theme, open, drawer_width }) => ({
   flexGrow: 1,
   height: '100vh',
-  padding: theme.spacing(3),
-  paddingTop: "64px",
+  padding: theme.spacing(1),
+  paddingTop: "96px",
   overflowY: 'scroll',
   backgroundColor: theme.palette.mode === "dark" ? "#272B30" : "#fff",
   color: theme.palette.mode === "dark" ? "#fff" : "#272B30",

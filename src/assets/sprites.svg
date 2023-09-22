@@ -183,11 +183,9 @@
     </svg>
   </symbol>
   <symbol id="left-ellipse" viewBox="0 0 10 6">
-    
-<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1 3C1 3.94831 1.98083 5 3.57143 5C3.86163 5 4.35991 4.87656 5.03296 4.60425C5.67691 4.34371 6.38039 3.98929 7.04263 3.62424C7.43053 3.41042 7.79857 3.19612 8.12505 3C7.79857 2.80388 7.43053 2.58958 7.04263 2.37576C6.38039 2.01071 5.67691 1.65629 5.03296 1.39575C4.35991 1.12344 3.86163 1 3.57143 1C1.98083 1 1 2.05169 1 3Z" fill="white" stroke="white" stroke-width="2"/>
-</svg>
-
+    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 3C1 3.94831 1.98083 5 3.57143 5C3.86163 5 4.35991 4.87656 5.03296 4.60425C5.67691 4.34371 6.38039 3.98929 7.04263 3.62424C7.43053 3.41042 7.79857 3.19612 8.12505 3C7.79857 2.80388 7.43053 2.58958 7.04263 2.37576C6.38039 2.01071 5.67691 1.65629 5.03296 1.39575C4.35991 1.12344 3.86163 1 3.57143 1C1.98083 1 1 2.05169 1 3Z" fill="white" stroke="white" stroke-width="2"/>
+    </svg>
   </symbol>
   <symbol id="right-ellipse" viewBox="0 0 10 6">
     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,6 +213,14 @@
     <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.5 1.5L19 9L11.5 16.5" stroke="#111315" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M1 9L19 9" stroke="#111315" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </symbol>
+  <symbol id="menu" viewBox="0 0 24 24">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="8" height="8" rx="3" fill="#6F767E"/>
+      <rect x="3" y="13" width="8" height="8" rx="3" fill="#6F767E"/>
+      <rect x="13" y="3" width="8" height="8" rx="3" fill="#6F767E"/>
+      <rect x="13" y="13" width="8" height="8" rx="3" fill="#6F767E"/>
     </svg>
   </symbol>
 </svg>

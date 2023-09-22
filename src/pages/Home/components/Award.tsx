@@ -4,7 +4,7 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import AwardImage from "@/assets/award.png"
 
-const RootBox = styled(Box)(() => ({
+const RootBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -12,7 +12,10 @@ const RootBox = styled(Box)(() => ({
   borderRadius: "12px",
   gap: "24px",
   height: "100%",
-  backgroundColor: "#1A1D1F"
+  backgroundColor: "#1A1D1F",
+  [theme.breakpoints.down('sm')]:{
+    padding: "12px"
+  }
 }));
 
 const FlexBox = styled(Box)(() => ({
@@ -44,9 +47,13 @@ const ShowButton = styled(Button)(() => ({
   },
 }));
 
-const AwardImg = styled("img")(() => ({
+const AwardImg = styled("img")(({ theme }) => ({
   width: "64px",
-  height: "64px"
+  height: "64px",
+  [theme.breakpoints.down('sm')]: {
+    width: "48px",
+    height: "48px",
+  }
 }));
 
 const Award: React.FC = () => {

@@ -9,7 +9,7 @@ interface PersonalLinkProps {
   link?: string;
 }
 
-const CardCustom = styled(Card)(() => ({
+const RootBox = styled(Card)(({ theme }) => ({
   borderRadius: 12,
   backgroundColor: "#1A1D1F",
   padding: "12px 24px",
@@ -18,6 +18,9 @@ const CardCustom = styled(Card)(() => ({
   display: "flex",
   flexDirection: "column",
   alignContent: "space-between",
+  [theme.breakpoints.down('sm')]: {
+    padding: "12px",
+  }
 }));
 
 const CardTitle = styled(Typography)(() => ({
@@ -28,11 +31,14 @@ const CardTitle = styled(Typography)(() => ({
   alignSelf: "center",
 }));
 
-const InviteLink = styled(Link)(() => ({
+const InviteLink = styled(Link)(({ theme }) => ({
   fontFamily: "BalooSemiBold",
   textDecoration: "none",
   color: "#FDE048",
   fontSize: 20,
+  [theme.breakpoints.down('sm')]:{
+    fontSize: 15
+  },
   alignSelf: "center"
 }));
 
@@ -49,7 +55,7 @@ const InviteBox = styled(Box)(() => ({
 
 const PersonalLink: React.FC<PersonalLinkProps> = ({ link }) => {
   return (
-    <CardCustom>
+    <RootBox>
       <Box>
         <CardTitle>Personal link</CardTitle>
       </Box>
@@ -69,7 +75,7 @@ const PersonalLink: React.FC<PersonalLinkProps> = ({ link }) => {
           </Button>
         </InviteBox>
       </Box>
-    </CardCustom>
+    </RootBox>
   );
 };
 

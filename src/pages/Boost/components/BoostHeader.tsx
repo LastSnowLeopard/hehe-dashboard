@@ -27,10 +27,13 @@ const ChangeButton = styled(Button)(() => ({
   textTransform: "none"
 }));
 
-const Header = styled(Typography)(() => ({
+const Header = styled(Typography)(({ theme }) => ({
   fontSize: "32px",
   lineHeight: "40px",
-  fontFamily: "BalooSemiBold"
+  fontFamily: "BalooSemiBold",
+  [theme.breakpoints.down('sm')]: {
+    fontSize: "24px",
+  }
 }));
 
 const IDChip = styled(Chip)(() => ({

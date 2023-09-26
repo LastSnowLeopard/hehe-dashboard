@@ -18,7 +18,6 @@ const Header: React.FC = () => {
   const {
     drawerWidth,
     sideOpenD,
-    // toggleSideOpenD,
     toggleSideOpenM,
     toggleWalletDialog,
     handleConnectWalletAnchor
@@ -26,39 +25,17 @@ const Header: React.FC = () => {
   const { address, isConnecting, isConnected } = useAccount();
 
   return (
-    <AppBar open={sideOpenD} drawer_width={drawerWidth} sx={{padding: { xs: 2, sm: 0}}}>
+    <AppBar open={sideOpenD} drawer_width={drawerWidth} sx={{padding: { sm: 0}}}>
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
+          padding: '0 5px'
         }}
       >
-        {/* <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          onClick={toggleSideOpenD}
-          sx={{
-            marginRight: "36px",
-            ...(sideOpenD && { display: "none" }),
-          }}
-        >
-          <ChevronRightIcon />
-        </IconButton> */}
-        {/* <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          onClick={toggleSideOpenM}
-          sx={{
-            // display: { xs: "inline-flex", md: "none" },
-          }}
-        >
-          <ChevronRightIcon />
-        </IconButton> */}
         <Box component="div" sx={{ flexGrow: 1, display: {xs: 'none', md: 'block'} }}></Box>
         <Logo src={LogoImg} alt="logo" sx={{display: {xs: 'block', md: 'none'}}} />
-        <Box display={"flex"} gap={1}>
+        <Box display={"flex"}>
           {isConnected ? (
             <Button
               color="primary"
@@ -97,7 +74,7 @@ const Header: React.FC = () => {
           color="inherit"
           aria-label="open drawer"
           onClick={toggleSideOpenM}
-          sx={{display: {xs: 'block', md: 'none'}}}
+          sx={{display: {xs: 'block', md: 'none'}, height: "40px"}}
         >
           <SVG id="menu" height={24} width={24} />
         </IconButton>

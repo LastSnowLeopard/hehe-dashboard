@@ -216,6 +216,75 @@ const boostDetail = {
   refresh: 8,
 };
 
+const achieve_busd = [
+  {
+    level: 1,
+  },
+  {
+    level: 2,
+  },
+  {
+    level: 3,
+  },
+  {
+    level: 4,
+  },
+  {
+    level: 5,
+  },
+]
+const achieve_personal = [
+  {
+    level: 1,
+  },
+  {
+    level: 2,
+  },
+  {
+    level: 3,
+  },
+  {
+    level: 4,
+  },
+  {
+    level: 5,
+  },
+]
+const achieve_team = [
+  {
+    level: 1,
+  },
+  {
+    level: 2,
+  },
+  {
+    level: 3,
+  },
+  {
+    level: 4,
+  },
+  {
+    level: 5,
+  },
+]
+const achieve_bnb = [
+  {
+    level: 1,
+  },
+  {
+    level: 2,
+  },
+  {
+    level: 3,
+  },
+  {
+    level: 4,
+  },
+  {
+    level: 5,
+  },
+]
+
 export {
   partner,
   team,
@@ -223,5 +292,9 @@ export {
   members,
   profit,
   boostItems,
-  boostDetail
+  boostDetail,
+  achieve_busd,
+  achieve_personal,
+  achieve_team,
+  achieve_bnb
 }

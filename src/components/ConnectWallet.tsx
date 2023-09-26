@@ -1,6 +1,8 @@
 import React from "react";
 import { useRoot } from "@/hooks/RootContext";
 import { styled } from "@mui/material/styles";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useAccount, useDisconnect, useBalance } from "wagmi";
 import Typography from "@mui/material/Typography";
 import Popover from "@mui/material/Popover";
@@ -98,6 +100,8 @@ const WalletAddress = styled(Typography)(() => ({
 
 const ConnectWallet: React.FC = () => {
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { 
     connectWalletAnchor, 
     closeConnectWallet,
@@ -139,10 +143,15 @@ const ConnectWallet: React.FC = () => {
   const open = Boolean(connectWalletAnchor);
   const id = open ? "simple-popover" : undefined;
 
+  const height = window.innerHeight;
+  const width = window.innerWidth;
+
   return (
     <Popover
       id={id}
       open={open}
+      anchorReference={mobile ? "anchorPosition" : "anchorEl"}
+      anchorPosition={mobile ? { top: height/2, left: width/2 } : undefined}
       anchorEl={connectWalletAnchor}
       onClose={handleClose}
       anchorOrigin={{
@@ -150,8 +159,8 @@ const ConnectWallet: React.FC = () => {
         horizontal: "right",
       }}
       transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: mobile ? "center" : "top",
+        horizontal: mobile ? "center" : "right",
       }}
       sx={{ backgroundColor: "#00000080" }}
     >
@@ -200,7 +209,7 @@ const ConnectWallet: React.FC = () => {
         >
           <Box>
             <RootBox sx={{justifyContent: { xs: 'flex-start'}}}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="avatar" src="" />
               <Box>
                 <WalletAddress>
                   {

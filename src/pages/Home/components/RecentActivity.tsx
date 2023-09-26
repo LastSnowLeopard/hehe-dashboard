@@ -1,59 +1,44 @@
-import React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
 import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import TableRow from "@mui/material/TableRow";
+import Tooltip from "@mui/material/Tooltip";
+import Divider from "@mui/material/Divider";
+import Paper from "@mui/material/Paper";
+import Chip from "@mui/material/Chip";
+import Box from "@mui/material/Box";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Pagination from "@/components/Pagination";
 import SVG from "@/components/SVG";
-import Chip from "@mui/material/Chip";
 
-const lists = [
-  {
-    increase: false,
+const StyledTableCell = styled(TableCell)(() => ({
+  border: "none",
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#1A1D1F",
+    color: "#6F767E",
   },
-  {
-    increase: false,
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 15,
   },
-  {
-    increase: false,
-  },
-  {
-    increase: true,
-  },
-  {
-    increase: false,
-  },
-  {
-    increase: false,
-  },
-  {
-    increase: false,
-  },
-  {
-    increase: false,
-  },
-];
-
-const RootBox = styled(Box)(({ theme }) => ({
+  alignItems: "center",
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  padding: "16px 24px",
-  [theme.breakpoints.down('sm')]: {
-    padding: "16px",
-  },
-  borderRadius: "12px",
-  gap: "24px",
-  backgroundColor: "#1A1D1F",
 }));
 
-const FlexBox = styled(Box)(() => ({
+const StyledTableRow = styled(TableRow)(() => ({
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
+  width: "100%",
+  "&:nth-of-type(odd)": {
+    backgroundColor: "#1A1D1F",
+  },
+  "&:nth-of-type(even)": {
+    backgroundColor: "#1A1D1F",
+  },
 }));
 
 const RootTypography = styled(Typography)(() => ({
@@ -63,47 +48,49 @@ const RootTypography = styled(Typography)(() => ({
 }));
 
 const IDChip = styled(Chip)(() => ({
-  backgroundColor: "#EAFAE426",
-  padding: "0px 8px",
-  borderRadius: "4px",
+  alignSelf: "center",
   color: "#83BF6E",
   fontFamily: "BalooSemiBold",
+  fontWeight: 600,
+  fontSize: 15,
+  padding: "0px 8px",
+  backgroundColor: "#EAFAE426",
+  borderRadius: "4px",
 }));
 
-const RootList = styled(List)(() => ({
-  display: "flex",
-  flexDirection: "column",
-  gap: "8px",
+const RootDivider = styled(Divider)(() => ({
+  margin: "8px 0px",
 }));
 
-const PaginationArrow = styled("div")(() => ({
-  width: "40px",
-  height: "40px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  borderRadius: "100px",
-  borderColor: "transparent",
-  borderWidth: "2px",
-  borderStyle: "solid",
-  cursor: "pointer",
-  "&:hover": {
-    borderColor: "#272B30",
-    "& svg path": {
-      fill: "#FCFCFC",
-    },
-  },
-}));
+function createData(increase: boolean, id: string, profit: string, where: string, time: string) {
+  return { increase, id, profit, where, time };
+}
+
+const rows = [
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(false, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(false, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+  createData(true, "ID234234", "+0.05BNB", "xCore", "1 minute"),
+];
 
 const RecentActivity: React.FC = () => {
   return (
-    <RootBox>
+    <TableContainer component={Paper}>
       <Box
         gap={2}
+        padding={2}
         sx={{
           display: "flex",
           borderBottom: "solid 1px #272B30",
           paddingBottom: "15px",
+          backgroundColor: "#1A1D1F",
+          width: "100%"
         }}
       >
         <RootTypography fontSize={20}>Platform recent activity</RootTypography>
@@ -113,76 +100,44 @@ const RecentActivity: React.FC = () => {
           </IconButton>
         </Tooltip>
       </Box>
-      <RootList>
-        {lists.map((list, index) => (
-          <ListItem
-            key={index}
-            sx={{ display: "flex", justifyContent: "space-between", paddingX: { xs: "0px", sm: "16px"} }}
-          >
-            <FlexBox sx={{gap: {xs: "8px", sm: "32px"}}}>
-              <SVG
-                id={list?.increase ? "up-arrow-gray" : "down-arrow-gray"}
-                width={26}
-                height={31}
-              />
-              <IDChip label="ID234234" />
-              <FlexBox gap={1}>
-                <RootTypography fontSize={15}>+0.05BNB</RootTypography>
-                <RootTypography fontSize={15} sx={{ color: "#FDE048" }}>
-                  in xCore
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableBody>
+          {rows.map((row, index) => (
+            <StyledTableRow key={index}>
+              <StyledTableCell width={"50px"} component="th" scope="row">
+                <SVG
+                  id={row.increase ? "up-arrow-gray" : "down-arrow-gray"}
+                  width={26}
+                  height={31}
+                />
+              </StyledTableCell>
+              <StyledTableCell width={"150px"} align="left">
+                <IDChip label={row.id} />
+              </StyledTableCell>
+              <StyledTableCell width={"200px"} align="left" sx={{display: "flex"}}>
+                <RootTypography fontSize={15}>{row.profit}</RootTypography>
+                <RootTypography fontSize={15} sx={{ color: "#FDE048" }}>&nbsp;in {row.where}</RootTypography>
+              </StyledTableCell>
+              <StyledTableCell align="right" sx={{ flex: 1, display: "flex" }}>
+                <RootTypography sx={{ display: { xs: 'none', sm: 'block'}, color: "#6F767E" }} fontSize={15}>
+                  {row.time}
                 </RootTypography>
-              </FlexBox>
-            </FlexBox>
-            <FlexBox>
                 <IconButton>
                   <OpenInNewIcon sx={{ color: "#6F767E" }} />
                 </IconButton>
-                <RootTypography sx={{ display: { xs: 'none', sm: 'block'}, color: "#6F767E" }} fontSize={15}>
-                  1 minute
-                </RootTypography>
-              </FlexBox>
-          </ListItem>
-        ))}
-      </RootList>
-      <Box
-        gap={2}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          borderTop: "solid 1px #272B30",
-          paddingTop: "15px",
-        }}
-      >
-        <PaginationArrow>
-          <svg
-            width="19"
-            height="16"
-            viewBox="0 0 19 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.70708 13.7929C9.0976 14.1834 9.0976 14.8166 8.70708 15.2071C8.31655 15.5976 7.68339 15.5976 7.29286 15.2071L1.49997 9.41421C0.718923 8.63317 0.718921 7.36684 1.49997 6.58579L7.29286 0.792894C7.68339 0.402369 8.31655 0.402369 8.70708 0.792894C9.0976 1.18342 9.0976 1.81658 8.70708 2.20711L3.91419 7H18C18.5523 7 19 7.44772 19 8C19 8.55229 18.5523 9 18 9H3.91418L8.70708 13.7929Z"
-              fill="#6F767E"
-            />
-          </svg>
-        </PaginationArrow>
-        <PaginationArrow>
-          <svg
-            width="19"
-            height="16"
-            viewBox="0 0 19 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.2929 13.7929C9.90237 14.1834 9.90237 14.8166 10.2929 15.2071C10.6834 15.5976 11.3166 15.5976 11.7071 15.2071L17.5 9.41421C18.281 8.63317 18.281 7.36684 17.5 6.58579L11.7071 0.792894C11.3166 0.402369 10.6834 0.402369 10.2929 0.792894C9.90237 1.18342 9.90237 1.81658 10.2929 2.20711L15.0858 7H1C0.447715 7 0 7.44772 0 8C0 8.55229 0.447715 9 1 9H15.0858L10.2929 13.7929Z"
-              fill="#6F767E"
-            />
-          </svg>
-        </PaginationArrow>
+              </StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Box sx={{ backgroundColor: "#1A1D1F", width: "100%" }}>
+        <Box padding={1}>
+          <RootDivider />
+          <RootDivider />
+        </Box>
+        <Pagination />
       </Box>
-    </RootBox>
+    </TableContainer>
   );
 };
 

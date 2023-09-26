@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box"
-import StatsHeader from "./components/StatsHeader";
 import StatsBody from "./components/StatsBody";
+import PageHeader from "@/components/PageHeader";
 
 const Partners: React.FC = () => {
   return (
     <Box padding={3}>
-      <StatsHeader />
+      <PageHeader title="Stats" id="ID 4623" />
       <StatsBody />
     </Box>
   )

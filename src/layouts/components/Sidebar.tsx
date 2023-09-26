@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { IconButton } from "@mui/material";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { IconButton, Drawer as MDrawer } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -101,7 +101,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ window }) => {
-  const { drawerWidth, sideOpenD, toggleSideOpenD } = useRoot();
+  const {
+    drawerWidth,
+    sideOpenD,
+    sideOpenM,
+    toggleSideOpenM,
+  } = useRoot();
   const [open, setOpen] = React.useState(true);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const navigate = useNavigate();
@@ -116,30 +121,13 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
     setSelectedIndex(index);
     navigate(path);
   };
-  return (
-    <Drawer
-      container={container}
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        display: { xs: "none", md: "block" },
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-          boxSizing: "border-box",
-          backgroundColor: "#1A1D1F",
-          borderRight: "0px",
-          height: "100vh",
-          padding: "24px",
-        },
-      }}
-      variant="persistent"
-      anchor="left"
-      open={sideOpenD}
-    >
+
+  const drawer = (
+    <>
       <DrawerHeader>
         <Logo src={LogoImg} alt="logo" />
-        <IconButton sx={{ display: "none" }} onClick={toggleSideOpenD}>
-          <ChevronLeftIcon />
+        <IconButton sx={{ display: { sm: "block", md: "none" }}} onClick={toggleSideOpenM}>
+          <CloseIcon />
         </IconButton>
       </DrawerHeader>
       <List
@@ -170,7 +158,9 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
           <ListItemTextCustom primary="Dashboard" />
         </ListItemButtonCustom>
         <ListItemButtonCustom
-          selected={selectedIndex === 2 || selectedIndex === 3 || selectedIndex === 4}
+          selected={
+            selectedIndex === 2 || selectedIndex === 3 || selectedIndex === 4
+          }
           onClick={handleClick}
         >
           <ListItemIcon sx={{ minWidth: "40px" }}>
@@ -234,6 +224,42 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
             </ListItemButtonSub>
           </List>
         </Collapse>
+        <ListItemButtonCustom
+          selected={selectedIndex === 5}
+          onClick={() => handleListItemClick(5, "/achievements")}
+        >
+          <ListItemIcon sx={{ minWidth: "40px" }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20" version="1.1">
+              <g id="surface1">
+                <path 
+                  d="M 15.746094 12.8125 L 14.992188 12.777344 L 17.554688 17.042969 L 15.644531 17.011719 L 14.773438 18.710938 L 12.402344 14.757812 L 12.0625 15.414062 L 14.816406 20 L 16.023438 17.644531 L 18.671875 17.6875 Z M 15.746094 12.8125 "
+                  fill="#6F767E"
+                />
+                <path 
+                  d="M 5.226562 18.710938 L 4.355469 17.011719 L 2.445312 17.042969 L 5 12.789062 L 4.246094 12.824219 L 1.328125 17.6875 L 3.976562 17.644531 L 5.183594 20 L 8.070312 15.191406 L 7.730469 14.535156 Z M 5.226562 18.710938 "
+                  fill="#6F767E"
+                />
+                <path 
+                  d="M 8.507812 0.898438 L 9.785156 1.71875 L 10.125 1.933594 L 10.460938 1.71875 L 11.738281 0.898438 L 12.4375 2.246094 L 12.621094 2.605469 L 13.023438 2.585938 L 14.539062 2.515625 L 14.46875 4.03125 L 14.449219 4.433594 L 14.808594 4.617188 L 16.15625 5.3125 L 15.335938 6.59375 L 15.121094 6.929688 L 15.335938 7.269531 L 16.15625 8.546875 L 14.808594 9.242188 L 14.449219 9.429688 L 14.46875 9.828125 L 14.539062 11.347656 L 13.023438 11.277344 L 12.621094 11.257812 L 12.4375 11.613281 L 11.738281 12.960938 L 10.460938 12.144531 L 10.125 11.925781 L 9.785156 12.144531 L 8.507812 12.960938 L 7.808594 11.613281 L 7.625 11.257812 L 7.222656 11.277344 L 5.707031 11.347656 L 5.777344 9.828125 L 5.796875 9.429688 L 5.441406 9.246094 L 4.089844 8.546875 L 4.910156 7.269531 L 5.128906 6.929688 L 4.910156 6.59375 L 4.089844 5.3125 L 5.441406 4.617188 L 5.796875 4.433594 L 5.777344 4.03125 L 5.707031 2.515625 L 7.222656 2.585938 L 7.625 2.605469 L 7.808594 2.246094 L 8.507812 0.898438 M 11.980469 0 L 10.125 1.191406 L 8.265625 0 L 7.253906 1.960938 L 5.050781 1.855469 L 5.152344 4.0625 L 3.191406 5.074219 L 4.382812 6.929688 L 3.191406 8.789062 L 5.152344 9.800781 L 5.050781 12.003906 L 7.253906 11.902344 L 8.265625 13.859375 L 10.125 12.671875 L 11.980469 13.859375 L 12.992188 11.902344 L 15.195312 12.003906 L 15.09375 9.800781 L 17.054688 8.789062 L 15.863281 6.929688 L 17.054688 5.074219 L 15.09375 4.0625 L 15.195312 1.855469 L 12.992188 1.960938 Z M 11.980469 0 "
+                  fill="#6F767E"
+                />
+                <path 
+                  d="M 8.507812 0.898438 L 9.785156 1.71875 L 10.125 1.933594 L 10.460938 1.71875 L 11.738281 0.898438 L 12.4375 2.246094 L 12.621094 2.605469 L 13.023438 2.585938 L 14.539062 2.515625 L 14.46875 4.03125 L 14.449219 4.433594 L 14.808594 4.617188 L 16.15625 5.3125 L 15.335938 6.59375 L 15.121094 6.929688 L 15.335938 7.269531 L 16.15625 8.546875 L 14.808594 9.242188 L 14.449219 9.429688 L 14.46875 9.828125 L 14.539062 11.347656 L 13.023438 11.277344 L 12.621094 11.257812 L 12.4375 11.613281 L 11.738281 12.960938 L 10.460938 12.144531 L 10.125 11.925781 L 9.785156 12.144531 L 8.507812 12.960938 L 7.808594 11.613281 L 7.625 11.257812 L 7.222656 11.277344 L 5.707031 11.347656 L 5.777344 9.828125 L 5.796875 9.429688 L 5.441406 9.246094 L 4.089844 8.546875 L 4.910156 7.269531 L 5.128906 6.929688 L 4.910156 6.59375 L 4.089844 5.3125 L 5.441406 4.617188 L 5.796875 4.433594 L 5.777344 4.03125 L 5.707031 2.515625 L 7.222656 2.585938 L 7.625 2.605469 L 7.808594 2.246094 L 8.507812 0.898438 M 11.980469 0 L 10.125 1.191406 L 8.265625 0 L 7.253906 1.960938 L 5.050781 1.855469 L 5.152344 4.0625 L 3.191406 5.074219 L 4.382812 6.929688 L 3.191406 8.789062 L 5.152344 9.800781 L 5.050781 12.003906 L 7.253906 11.902344 L 8.265625 13.859375 L 10.125 12.671875 L 11.980469 13.859375 L 12.992188 11.902344 L 15.195312 12.003906 L 15.09375 9.800781 L 17.054688 8.789062 L 15.863281 6.929688 L 17.054688 5.074219 L 15.09375 4.0625 L 15.195312 1.855469 L 12.992188 1.960938 Z M 11.980469 0 "
+                  fill="#6F767E"
+                />
+                <path 
+                  d="M 10.214844 11.03125 C 7.929688 11.03125 6.070312 9.175781 6.070312 6.890625 C 6.070312 4.605469 7.929688 2.75 10.214844 2.75 C 12.496094 2.75 14.355469 4.609375 14.355469 6.890625 C 14.355469 9.175781 12.496094 11.03125 10.214844 11.03125 Z M 10.214844 3.375 C 8.277344 3.375 6.699219 4.953125 6.699219 6.890625 C 6.699219 8.828125 8.277344 10.40625 10.214844 10.40625 C 12.152344 10.40625 13.730469 8.828125 13.730469 6.890625 C 13.730469 4.953125 12.152344 3.375 10.214844 3.375 Z M 10.214844 3.375 "
+                  fill="#6F767E"
+                />
+                <path 
+                  d="M 8.6875 9.175781 L 8.992188 7.46875 L 7.742188 6.269531 L 9.457031 6.03125 L 10.214844 4.472656 L 10.96875 6.03125 L 12.6875 6.269531 L 11.4375 7.46875 L 11.742188 9.171875 L 10.214844 8.355469 Z M 10.214844 7.648438 L 10.898438 8.011719 L 10.761719 7.25 L 11.320312 6.710938 L 10.550781 6.605469 L 10.214844 5.90625 L 9.875 6.605469 L 9.105469 6.710938 L 9.667969 7.25 L 9.53125 8.011719 Z M 10.214844 7.648438 "
+                  fill="#6F767E"
+                />
+              </g>
+            </svg>
+          </ListItemIcon>
+          <ListItemTextCustom primary="Achievements" />
+        </ListItemButtonCustom>
         <ListItemButtonCustom>
           <ListItemIcon sx={{ minWidth: "40px" }}>
             <svg
@@ -332,7 +358,54 @@ const Sidebar: React.FC<SidebarProps> = ({ window }) => {
           <ListItemTextCustom primary="Information" />
         </ListItemButtonCustom>
       </List>
-    </Drawer>
+    </>
+  );
+
+  return (
+    <>
+      <MDrawer
+        container={container}
+        variant="temporary"
+        open={sideOpenM}
+        onClose={toggleSideOpenM}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          zIndex: 1201,
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: "100%",
+            height: "100vh",
+            padding: "24px",
+          },
+        }}
+      >
+        {drawer}
+      </MDrawer>
+      <Drawer
+        container={container}
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          display: { xs: "none", md: "block" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+            backgroundColor: "#1A1D1F",
+            borderRight: "0px",
+            height: "100vh",
+            padding: "24px",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={sideOpenD}
+      >
+        {drawer}
+      </Drawer>
+    </>
   );
 };
 
